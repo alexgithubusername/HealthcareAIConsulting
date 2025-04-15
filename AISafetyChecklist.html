@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Safety Mitigation Checklist - Healthcare AI Consulting</title>
+  <link rel="stylesheet" href="light.css" id="light-theme" disabled>
+  <link rel="stylesheet" href="dark.css" id="dark-theme">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 1rem;
+      font-size: 14px;
+      color: #111;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1f2937;
+      font-size: 1.75rem;
+      margin-bottom: 1rem; /* Adjusted margin */
+    }
+    .reset-button {
+      display: block;
+      margin: 0 auto 1.5rem auto; /* Center button and add bottom margin */
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
+      background-color: #ef4444; /* Red color */
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .reset-button:hover {
+      background-color: #dc2626; /* Darker red on hover */
+    }
+    /* Row-based Card Backgrounds (Assumes 3 columns) */
+    /* Row 1: Cards 1-3 */
+    .grid .card:nth-child(-n+3) .front {
+      background: #fefce8; /* Light Yellow */
+    }
+    /* Row 2: Cards 4-6 */
+    .grid .card:nth-child(n+4):nth-child(-n+6) .front {
+      background: #f0fdfa; /* Light Mint */
+    }
+    /* Row 3: Cards 7-9 */
+    .grid .card:nth-child(n+7):nth-child(-n+9) .front {
+      background: #f5f3ff; /* Light Purple */
+    }
+    /* Row 4: Cards 10-12 */
+    .grid .card:nth-child(n+10):nth-child(-n+12) .front {
+      background: #fef2f2; /* Light Red/Pink */
+    }
+    /* Note: Row coloring might break if grid wraps to != 3 columns */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      perspective: 1000px;
+      min-height: 190px; /* Increased min-height for more space */
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%; /* Ensure front and back take full height */
+      backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-sizing: border-box; /* Include padding in height/width */
+      display: flex; /* Use flexbox for content alignment */
+      flex-direction: column; /* Stack content vertically */
+    }
+    .front {
+      background: #f9fafb;
+      border-left: 5px solid #10b981;
+    }
+    .back {
+      background: #e0f2fe;
+      transform: rotateY(180deg);
+      border-left: 5px solid #0284c7;
+      justify-content: center; /* Center content vertically */
+    }
+    h2 {
+      font-size: 1rem;
+      color: #047857;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .back h2 {
+        color: #0369a1; /* Different color for back heading */
+    }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      position: relative;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+      flex-shrink: 0; /* Prevent checkbox from shrinking */
+    }
+    .checkbox label { /* Allow label text to wrap */
+        word-break: break-word;
+    }
+    .checkbox:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 100%;
+      left: 1rem; /* Adjust position */
+      background: #111;
+      color: #fff;
+      padding: 0.4rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+      z-index: 10; /* Ensure tooltip is on top */
+      pointer-events: none; /* Prevent tooltip from blocking clicks */
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .checkbox:hover::after {
+        opacity: 1;
+    }
+    .complete {
+      text-decoration: line-through;
+      color: #6b7280;
+    }
+    .citation-marker {
+      font-size: 0.7em;
+      vertical-align: super;
+      margin-left: 2px;
+      color: #065f46; /* Dark green */
+      text-decoration: none;
+    }
+    .citation-marker:hover {
+      text-decoration: underline;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--surface);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    
+    .logo-icon {
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: color 0.3s;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    .contact-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .contact-btn:hover {
+      background-color: #1d4ed8;
+    }
+    
+    /* Dropdown Menu Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--surface);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .dropdown-content a {
+      color: var(--text-primary);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-toggle::after {
+      content: "▼";
+      font-size: 0.7em;
+      margin-left: 0.5em;
+      vertical-align: middle;
+    }
+    
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚕️</span>
+      Healthcare AI Consulting
+    </a>
+    <div class="nav-links">
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="about-page.html" class="nav-link">About Me</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <div class="dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Resources</a>
+        <div class="dropdown-content">
+          <a href="resources.html">Medical Education</a>
+                    <a href="index2.html">AI & Cognition</a>
+        </div>
+      </div>
+      <a href="blog.html" class="nav-link">Reading</a>
+      <div class="dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+        <div class="dropdown-content">
+          <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+          <a href="HumanFactor.html">Human Factors Checklist</a>
+          <a href="Humanely.html">HumanELY LLM Eval</a>
+        </div>
+      </div>
+    </div>
+    <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
+  </nav>
+
+  <div class="container">
+    <h1>🤖 AI Safety & Mitigation Checklist for Healthcare</h1>
+    <button id="reset-button" class="reset-button">Reset Checklist</button>
+    <div class="grid">
+      <!-- Section 1: Anticipate Errors -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🧠 Anticipate AI-Related Errors</h2>
+            <label class="checkbox" data-tooltip="When will the AI be used? During triage, discharge, diagnosis?">
+              <input type="checkbox"> Define AI use context
+            </label>
+            <label class="checkbox" data-tooltip="What do we expect the AI to do or recommend?">
+              <input type="checkbox"> Identify expected action/output
+            </label>
+            <label class="checkbox" data-tooltip="Hallucinations, false negatives, premature closure, bias?">
+              <input type="checkbox"> Predict potential AI failure modes <a href="#ref3" class="citation-marker">[3]</a> <a href="#ref5" class="citation-marker">[5]</a>
+            </label>
+            <label class="checkbox" data-tooltip="How could the user respond poorly to bad AI output?">
+              <input type="checkbox"> Map user-AI interaction risks <a href="#ref1" class="citation-marker">[1]</a> <a href="#ref4" class="citation-marker">[4]</a>
+            </label>
+          </div>
+          <div class="back">
+            <h2>🧠 Insights: Anticipate Errors</h2>
+            <p>Define where and how AI is deployed. Anticipate known issues like hallucination, automation bias, or edge-case logic failures. Map user-AI interactions to identify risk points.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Evaluate Impact -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🧪 Evaluate AI Failure Impact</h2>
+            <label class="checkbox" data-tooltip="Would this lead to diagnostic error, delay, or patient harm?">
+              <input type="checkbox"> Assess severity of harm
+            </label>
+            <label class="checkbox" data-tooltip="Who or what would detect the error if not prevented?">
+              <input type="checkbox"> Consider detection likelihood
+            </label>
+            <label class="checkbox" data-tooltip="Are clinicians over-relying on the system?">
+              <input type="checkbox"> Check for automation bias <a href="#ref2" class="citation-marker">[2]</a>
+            </label>
+          </div>
+          <div class="back">
+            <h2>🧪 Insights: Evaluate Impact</h2>
+            <p>Determine the potential clinical consequences of AI failures. Consider how easily errors might be detected and whether over-reliance (automation bias) is a factor.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Design Mitigation -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🛡️ Design Mitigation Prompts</h2>
+            <label class="checkbox" data-tooltip="Insert a just-in-time prompt to trigger clinician review">
+              <input type="checkbox"> Add verification question
+            </label>
+            <label class="checkbox" data-tooltip="Can the AI cite references or show rationale?">
+              <input type="checkbox"> Request evidence or source transparency
+            </label>
+            <label class="checkbox" data-tooltip="Use AI to alert user if context shifts (e.g., new vitals)">
+              <input type="checkbox"> Use context-aware prompting
+            </label>
+          </div>
+          <div class="back">
+            <h2>🛡️ Insights: Design Mitigation</h2>
+            <p>Create specific prompts or interface elements to counteract anticipated failures, such as requiring verification, demanding evidence, or adapting to changing clinical context.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Interface & Usability -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🧩 Interface & Usability</h2>
+            <label class="checkbox" data-tooltip="Is the AI prompt brief and readable at point of care?">
+              <input type="checkbox"> Minimize cognitive load
+            </label>
+            <label class="checkbox" data-tooltip="Avoid ambiguous alerts or buried suggestions">
+              <input type="checkbox"> Ensure visibility of critical prompts
+            </label>
+            <label class="checkbox" data-tooltip="Can clinicians override the system with rationale?">
+              <input type="checkbox"> Enable human oversight
+            </label>
+          </div>
+          <div class="back">
+            <h2>🧩 Insights: Interface & Usability</h2>
+            <p>Ensure mitigation prompts are clear, concise, and easily visible within the clinical workflow. Design for minimal cognitive burden and allow for human override.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Test in Simulation -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🔬 Test in Simulation</h2>
+            <label class="checkbox" data-tooltip="Run edge case scenarios with residents or attendings">
+              <input type="checkbox"> Test with high-risk cases
+            </label>
+            <label class="checkbox" data-tooltip="Monitor actual use vs. intended design">
+              <input type="checkbox"> Observe work-as-done
+            </label>
+            <label class="checkbox" data-tooltip="Refine based on actual user behavior">
+              <input type="checkbox"> Iterate mitigation strategy
+            </label>
+          </div>
+          <div class="back">
+            <h2>🔬 Insights: Test in Simulation</h2>
+            <p>Use simulated scenarios, especially high-risk ones, to test the effectiveness of mitigations. Observe how users actually interact with the system ("work-as-done") and iterate.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Monitor & Improve -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>📊 Monitor & Improve</h2>
+            <label class="checkbox" data-tooltip="Log alert overrides, false positives/negatives">
+              <input type="checkbox"> Track AI usage and feedback
+            </label>
+            <label class="checkbox" data-tooltip="Use audit trails and near miss analysis">
+              <input type="checkbox"> Conduct retrospective review
+            </label>
+            <label class="checkbox" data-tooltip="Engage end users for ongoing safety tuning">
+              <input type="checkbox"> Involve clinicians in refinement
+            </label>
+          </div>
+          <div class="back">
+            <h2>📊 Insights: Monitor & Improve</h2>
+            <p>Continuously monitor AI performance, user feedback, and system interactions post-deployment. Use audits and clinician input for ongoing refinement and safety improvements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 7: Racial & Ethnic Equity -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🌍 Racial & Ethnic Equity</h2>
+            <label class="checkbox" data-tooltip="Was the AI trained/validated on diverse population data?">
+              <input type="checkbox"> Assess training data diversity
+            </label>
+            <label class="checkbox" data-tooltip="Does the AI perform equitably across racial/ethnic groups?">
+              <input type="checkbox"> Test for performance disparities
+            </label>
+            <label class="checkbox" data-tooltip="Are there proxies for race (e.g., zip code) that could introduce bias?">
+              <input type="checkbox"> Identify potential bias proxies
+            </label>
+             <label class="checkbox" data-tooltip="Are outcomes monitored for racial/ethnic disparities post-deployment?">
+              <input type="checkbox"> Monitor for disparate impact
+            </label>
+          </div>
+          <div class="back">
+            <h2>🌍 Insights: Racial & Ethnic Equity</h2>
+            <p>Ensure AI systems do not perpetuate or worsen existing health disparities. Validate performance across diverse groups and monitor for biased outcomes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8: Language & Cultural Equity -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>🗣️ Language & Cultural Equity</h2>
+            <label class="checkbox" data-tooltip="Is the AI's output understandable for patients with Limited English Proficiency (LEP)?">
+              <input type="checkbox"> Evaluate LEP accessibility
+            </label>
+            <label class="checkbox" data-tooltip="Does the AI consider cultural factors that might influence health decisions or presentations?">
+              <input type="checkbox"> Consider cultural context
+            </label>
+            <label class="checkbox" data-tooltip="Are translations accurate and culturally appropriate?">
+              <input type="checkbox"> Validate translations & terminology
+            </label>
+             <label class="checkbox" data-tooltip="Are patient-facing interfaces available in multiple languages?">
+              <input type="checkbox"> Provide multilingual interfaces
+            </label>
+          </div>
+          <div class="back">
+            <h2>🗣️ Insights: Language & Cultural Equity</h2>
+            <p>AI tools must be accessible and effective for patients from diverse linguistic and cultural backgrounds. Avoid assumptions and ensure culturally sensitive communication.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 9: Ability & Gender Equity -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Gender & Ability Equity</h2>
+            <label class="checkbox" data-tooltip="Is the interface accessible to users with disabilities (e.g., screen reader compatible)?">
+              <input type="checkbox"> Ensure WCAG/ADA compliance
+            </label>
+            <label class="checkbox" data-tooltip="Does the AI account for physiological differences (e.g., sex-based)?">
+              <input type="checkbox"> Consider sex/gender differences
+            </label>
+            <label class="checkbox" data-tooltip="Does the AI avoid gender stereotypes or biased assumptions?">
+              <input type="checkbox"> Test for gender bias in output
+            </label>
+             <label class="checkbox" data-tooltip="Are accessibility features tested with users with disabilities?">
+              <input type="checkbox"> Conduct accessibility testing
+            </label>
+          </div>
+          <div class="back">
+            <h2>♿젠더 Insights: Gender & Ability Equity</h2>
+            <p>Design AI systems that are usable by people of all abilities and free from gender bias. Ensure interfaces meet accessibility standards and algorithms account for relevant biological/social differences.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Section 10: APP Medical Students -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>APP Medical Students</h2>
+            <label class="checkbox" data-tooltip="Engage with interactive case simulations and adaptive platforms to build foundational clinical understanding.">
+              <input type="checkbox"> Use virtual patient simulations <a href="#ref6" class="citation-marker">[6]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Cross-reference AI recommendations with core clinical guidelines and textbook knowledge.">
+              <input type="checkbox"> Verify AI outputs with evidence <a href="#ref7" class="citation-marker">[7]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Develop early habits of healthy skepticism and identify early biases in AI tools.">
+              <input type="checkbox"> Recognize and flag potential bias
+            </label>
+            <label class="checkbox" data-tooltip="Participate in guided feedback sessions to improve digital health literacy.">
+              <input type="checkbox"> Engage in reflective learning sessions
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: APP Medical Students</h2>
+            <p>Early exposure to AI tools is essential. Students should learn to use interactive simulations, verify clinical outputs against trusted sources, and develop the habit of critically evaluating AI recommendations to mitigate bias from the start.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 11: Residents -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Residents</h2>
+            <label class="checkbox" data-tooltip="Integrate AI recommendations into clinical workflows while maintaining oversight.">
+              <input type="checkbox"> Combine AI outputs with clinical judgment <a href="#ref8" class="citation-marker">[8]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Be aware of and counteract automation bias.">
+              <input type="checkbox"> Monitor for automation bias
+            </label>
+            <label class="checkbox" data-tooltip="Ensure AI suggestions align with evidence-based guidelines.">
+              <input type="checkbox"> Validate AI-driven decisions <a href="#ref9" class="citation-marker">[9]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Engage in multidisciplinary discussions to review AI performance.">
+              <input type="checkbox"> Collaborate in case reviews
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Residents</h2>
+            <p>Residents must adeptly merge AI-driven insights with hands-on clinical experience. Critical evaluation of AI outputs and active monitoring for biases are key to safe integration into patient care.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 12: Fellows -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Fellows</h2>
+            <label class="checkbox" data-tooltip="Critically appraise AI methodologies and understand underlying algorithms.">
+              <input type="checkbox"> Deep-dive into AI analytics <a href="#ref10" class="citation-marker">[10]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Utilize AI tools for research, quality improvement, and protocol development.">
+              <input type="checkbox"> Leverage AI for research and protocol refinement <a href="#ref11" class="citation-marker">[11]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Mentor junior colleagues in safely using AI and mitigating bias.">
+              <input type="checkbox"> Mentor and lead in AI safety
+            </label>
+            <label class="checkbox" data-tooltip="Develop institutional guidelines on AI use and monitor for performance disparities.">
+              <input type="checkbox"> Establish and refine AI governance protocols
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Fellows</h2>
+            <p>Fellows are expected to lead by example in both advanced clinical decision-making and research. They should critically evaluate AI systems, contribute to policy development, and mentor others in aligning technology with ethical standards.</p>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End grid -->
+
+    <!-- References for 0---Anticipate AI-Related Errors -->
+    <section id="references-anticiate-errors" style="margin-top:2rem;">
+      <h2 style="text-align:center; color:#1f2937; font-size:1.5rem; margin-bottom:1rem;">References: Anticipate AI-Related Errors</h2>
+      <table style="width:100%; border-collapse:collapse; margin:0 auto; font-size: 0.85rem;">
+        <thead>
+          <tr style="background:#f9fafb;">
+            <th style="border:1px solid #ddd; padding:0.5rem; text-align: left;">ID</th>
+            <th style="border:1px solid #ddd; padding:0.5rem; text-align: left;">Title</th>
+            <th style="border:1px solid #ddd; padding:0.5rem; text-align: left;">Link</th>
+            <th style="border:1px solid #ddd; padding:0.5rem; text-align: left;">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="ref1">
+            <td style="border:1px solid #ddd; padding:0.5rem;">1</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">What’s the Worst That Could Happen? A Guide to AI Risks</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.immuta.com/blog/ai-risks/" target="_blank">Immuta Blog</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Outlines various failure modes and risk factors in AI systems.</td>
+          </tr>
+          <tr id="ref2">
+            <td style="border:1px solid #ddd; padding:0.5rem;">2</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Errors + Graceful Failure</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://pair.withgoogle.com/guidebook-v2/chapter/errors-failing/" target="_blank">Google PAIR Guidebook</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Discusses design strategies for managing AI errors and user mental models.</td>
+          </tr>
+          <tr id="ref3">
+            <td style="border:1px solid #ddd; padding:0.5rem;">3</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Understanding and Avoiding AI Failures: A Practical Guide</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://arxiv.org/html/2104.12582v4" target="_blank">arXiv Paper</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Framework for understanding AI failures and mitigation methods.</td>
+          </tr>
+          <tr id="ref4">
+            <td style="border:1px solid #ddd; padding:0.5rem;">4</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Analyzing AI Application Threat Models</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.nccgroup.com/us/research-blog/analyzing-ai-application-threat-models/" target="_blank">NCC Group Blog</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Analysis of threat models critical for mapping user–AI interaction risks.</td>
+          </tr>
+          <tr id="ref5">
+            <td style="border:1px solid #ddd; padding:0.5rem;">5</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Top Risks of Generative AI Systems</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://saif.google/secure-ai-framework/risks" target="_blank">Google SAIF</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Overview of key risks, failure modes, and mitigation strategies for generative AI.</td>
+          </tr>
+          <tr id="ref6">
+            <td style="border:1px solid #ddd; padding:0.5rem;">6</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Big Data and Machine Learning in Health Care</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.bmj.com/content/360/bmj.j5641" target="_blank">BMJ Article</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Highlights how AI/ML are revolutionizing clinical decision-making.</td>
+          </tr>
+          <tr id="ref7">
+            <td style="border:1px solid #ddd; padding:0.5rem;">7</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Artificial Intelligence in Healthcare: Opportunities, Challenges...</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.ahrq.gov" target="_blank">AHRQ Report</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Foundational insights into AI for healthcare quality and safety.</td>
+          </tr>
+          <tr id="ref8">
+            <td style="border:1px solid #ddd; padding:0.5rem;">8</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">The Role of Artificial Intelligence in Graduate Medical Education</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.aamc.org" target="_blank">AAMC Report</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Discusses AI in residency training, addressing safety and bias.</td>
+          </tr>
+          <tr id="ref9">
+            <td style="border:1px solid #ddd; padding:0.5rem;">9</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Enhancing Patient Safety in the Era of Artificial Intelligence</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.jointcommission.org" target="_blank">Joint Commission Perspective</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Emphasizes patient safety standards for AI integration in clinical care.</td>
+          </tr>
+          <tr id="ref10">
+            <td style="border:1px solid #ddd; padding:0.5rem;">10</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Competency-Based Medical Education in the Age of Artificial Intelligence</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.acgme.org" target="_blank">ACGME Guidelines</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Outlines integrating AI competencies into fellowship training.</td>
+          </tr>
+          <tr id="ref11">
+            <td style="border:1px solid #ddd; padding:0.5rem;">11</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Leveraging Artificial Intelligence to Enhance Patient Safety...</td>
+            <td style="border:1px solid #ddd; padding:0.5rem;"><a href="https://www.stanfordhealthcare.org" target="_blank">Stanford MedStar Safety Center</a></td>
+            <td style="border:1px solid #ddd; padding:0.5rem;">Advanced strategies for using AI to improve patient safety.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- Removed placeholder reference sections -->
+
+  </div> <!-- End container -->
+
+  <script>
+    // Handle checkbox state changes and label styling
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        const label = this.closest('label');
+        if (this.checked) {
+          label.classList.add('complete');
+        } else {
+          label.classList.remove('complete');
+        }
+      });
+    });
+
+    // Handle card flipping based on checkbox completion
+    document.querySelectorAll('.card').forEach(card => {
+      const checkboxes = card.querySelectorAll('.front input[type="checkbox"]'); // Only target checkboxes in the front face
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          // Check if *all* checkboxes within this card's front face are checked
+          const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+          if (allChecked) {
+            card.classList.add('flipped');
+          } else {
+            card.classList.remove('flipped');
+          }
+        });
+      });
+    });
+
+    // Handle Reset Button Click
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', () => {
+      // Uncheck all checkboxes and remove 'complete' class
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+        const label = checkbox.closest('label');
+        if (label) {
+          label.classList.remove('complete');
+        }
+      });
+
+      // Flip all cards back to front
+      document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('flipped');
+      });
+    });
+  </script>
+  
+  <script src="theme-toggle.js"></script>
+</body>
+</html>

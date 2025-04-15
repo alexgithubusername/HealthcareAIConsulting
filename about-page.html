@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Alex Dummett - Healthcare AI Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about-light.css" id="light-theme" disabled>
+    <link rel="stylesheet" href="about-dark.css" id="dark-theme">
+    <style>
+        /* Keep existing styles, but they will be overridden by about-dark.css where applicable */
+        :root {
+            /* Define original variables - they might be overridden by about-dark.css */
+            --primary: #2563eb;
+            --secondary: #fbbf24;
+            --background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .contact-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .header-section {
+            padding: 30px;
+            border-radius: 0.75rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .profile-title h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-title p {
+            margin-bottom: 5px;
+        }
+
+        .bio {
+            margin-bottom: 20px;
+        }
+
+        .section {
+            padding: 40px;
+            border-radius: 0.75rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .timeline-item {
+            border-radius: 0.75rem;
+            padding: 20px;
+            position: relative;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-company {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description ul {
+            list-style-type: none;
+        }
+
+        .timeline-description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 5px;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 0.75rem;
+        }
+
+        .certification-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certification-icon img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .certification-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .certification-info p {
+            font-size: 14px;
+        }
+
+        .projects-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .project-item {
+            display: flex;
+            padding: 20px;
+            border-radius: 0.75rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .project-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 14px;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--surface);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: var(--text-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 0.7em;
+            margin-left: 0.5em;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            Healthcare AI Consulting
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="about-page.html" class="nav-link">About Me</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="resources.html">Medical Education</a>
+                    <a href="index2.html">AI & Cognition</a>
+                 </div>
+            </div>
+            <a href="blog.html" class="nav-link">Reading</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+                <div class="dropdown-content">
+                    <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+                </div>
+            </div>
+        </div>
+        <a href="#contact" class="contact-btn">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <!-- Header / Expanded Bio Section -->
+        <div class="header-section">
+            <div class="profile-header" style="display: flex; align-items: center;">
+                <!-- Headshot placeholder -->
+                <img src="headshot.jpeg" alt="Alex Dummett Headshot" class="headshot" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 20px;">
+                <div class="profile-title">
+                    <h1>Alex Dummett, MD, FACP, CPPS</h1>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Dr. Alex Dummett, MD, FACP, CPPS, is a nationally recognized physician-informaticist whose career spans clinical practice, medical education, patient safety, and the pioneering integration of artificial intelligence into healthcare. With board certifications in Clinical Informatics, Internal Medicine, and now the AVIM Clinical Informatics Board Certification, he has over a decade of hands-on experience developing, deploying, and optimizing AI-powered clinical decision support tools. As the Founder of Healthcare AI Consulting, LLC, he leads transformative projects that embed evidence-based generative AI into simulation-based training and clinical decision support systems, empowering clinicians to navigate complex care environments with enhanced accuracy and efficiency.</p>
+                <p>His expertise also extends to telemedicine, innovative early warning systems, and comprehensive quality improvement initiatives – efforts that have not only reduced in-hospital deterioration but have also garnered national recognition (including the prestigious Eisenberg Award). A celebrated educator and mentor, Dr. Dummett has served in roles including Chief Resident, Program Director, and Clerkship Director, guiding the next generation of clinicians in clinical reasoning and technological innovation. Committed to fostering a robust learning health system, he continues to advance the national conversation on the integration of AI in healthcare while delivering direct patient care.</p>
+            </div>
+        </div>
+<!-- Expanded Experience Section -->
+<div class="section">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+    
+      <!-- 1. Healthcare AI Consulting, LLC – Consultant -->
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2025 – Present</div>
+        <div class="timeline-company">
+          Healthcare AI Consulting, LLC · Self-employed · Remote • Tampa, FL, United States
+        </div>
+        <h3 class="timeline-title">Consultant – AI &amp; Healthcare Consulting</h3>
+        <div class="timeline-description">
+            <p><strong>Excited to Announce My Next Chapter: AI &amp; Healthcare Consulting</strong></p>
+            <p>After years of leading AI-driven quality improvement initiatives, piloting predictive analytics, and modernizing healthcare systems, I am taking the next step as a Healthcare AI &amp; Clinical Informatics Consultant. I work with health systems, hospitals, medical groups, residency programs, and medical schools to optimize AI implementation, streamline clinical workflows, and improve diagnostic accuracy.</p>
+            <p>My focus includes:</p>
+            <ul>
+               <li><strong>AI in Clinical Decision Support:</strong> Enhancing physician decision-making, reducing diagnostic errors, and improving patient outcomes.</li>
+               <li><strong>EHR Optimization &amp; Standardization:</strong> Integrating AI-driven workflows into Epic and other EHRs to improve efficiency and reduce documentation burden.</li>
+               <li><strong>Medical Education &amp; Simulation:</strong> Developing AI-powered OSCEs, diagnostic reasoning tools, and simulation-based training to prepare clinicians and trainees for AI-enabled practice.</li>
+               <li><strong>Residency &amp; Medical School AI Integration:</strong> Supporting programs to incorporate AI into curricula and clinical reasoning exercises.</li>
+               <li><strong>Healthcare Quality &amp; Safety:</strong> Designing AI-enabled early warning systems, real-time quality monitoring, and data-driven interventions to enhance patient safety.</li>
+               <li><strong>Consulting for Healthcare Organizations, AI Startups &amp; Health Tech Companies:</strong> Advising on AI model validation, regulatory compliance, and clinical adoption.</li>
+            </ul>
+            <p>As AI continues to transform medicine, I look forward to collaborating with organizations seeking an evidence-based, pragmatic approach to AI adoption that enhances clinical expertise.</p>
+            <p>Website: <a href="https://healthcareaiconsulting.com" target="_blank">healthcareaiconsulting.com</a></p>
+        </div>
+      </div>
+    
+      <!-- 2. American College of Artificial Intelligence and Medicine – Scientific Chair -->
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2025 – Present</div>
+        <div class="timeline-company">
+          American College of Artificial Intelligence and Medicine · Freelance · Remote • McCormick Place, Chicago, IL
+        </div>
+        <h3 class="timeline-title">Chair – Scientific Session 2025: Evidence-Based AI in Medicine</h3>
+        <div class="timeline-description">
+            <p>I'm honored to serve as Scientific Chair for the upcoming conference hosted by the American College of Artificial Intelligence and Medicine 2025. This event, held at McCormick Place, Chicago, gathers clinicians, researchers, educators, technologists, and policy leaders to advance responsible AI in healthcare.</p>
+            <p>Our goal is to curate a program rooted in evidence, clinical relevance, and meaningful impact while fostering honest dialogue and community-building.</p>
+            <p>Website: <a href="https://acaiam.org" target="_blank">acaiam.org</a></p>
+        </div>
+      </div>
+    
+      <!-- 3. Thinkhat – Physician Advisor -->
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2025 – Present</div>
+        <div class="timeline-company">
+          Thinkhat · Contract · Remote
+        </div>
+        <h3 class="timeline-title">Physician Advisor, FORMD</h3>
+        <div class="timeline-description">
+            <p>At Thinkhat, I support innovation at the intersection of AI, healthcare, and medical education. My work involves designing, evaluating, and scaling high-impact clinical tools that enhance safety, clinical reasoning, and educational outcomes.</p>
+            <ul>
+                <li>Advising on clinical use cases and ensuring product safety in AI-driven tools.</li>
+                <li>Integrating quality improvement and informatics frameworks into solution design.</li>
+                <li>Supporting evidence-based decision-making through simulation and training platforms like FORMD.</li>
+            </ul>
+            <p>Website: <a href="https://thinkhat.ai" target="_blank">thinkhat.ai</a></p>
+        </div>
+      </div>
+    
+      <!-- 4. Mid-Atlantic Permanente Medical Group – Associate Program Director -->
+      <div class="timeline-item">
+        <div class="timeline-date">Jun 2019 – Mar 2025</div>
+        <div class="timeline-company">
+          Mid-Atlantic Permanente Medical Group · Full-time • Gaithersburg, MD, United States
+        </div>
+        <h3 class="timeline-title">Associate Program Director, Internal Medicine Residency &amp; Patient Safety Officer</h3>
+        <div class="timeline-description">
+            <p>At MAPMG, I led the creation and execution of an Internal Medicine Residency program, mentored faculty and residents, and implemented quality improvement and patient safety initiatives, including serving as the National Early Warning System Subject Matter Expert.</p>
+            <p>Website: <a href="http://residency-mas.kaiserpermanente.org" target="_blank">residency-mas.kaiserpermanente.org</a></p>
+        </div>
+      </div>
+    
+      <!-- 5. The Permanente Medical Group – Advance Alert Monitor Regional Clinical Lead -->
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2013 – Jun 2019</div>
+        <div class="timeline-company">
+          The Permanente Medical Group, Inc. · Full-time • San Francisco Bay Area, CA
+        </div>
+        <h3 class="timeline-title">Advance Alert Monitor Regional Clinical Lead</h3>
+        <div class="timeline-description">
+            <p>I led the pilot, development, and expansion of the award-winning Advance Alert Monitor, reducing in-hospital deterioration across multiple hospitals and managing extensive EPIC Clinical Decision Support tools.</p>
+            <p>Website: <a href="https://www.kaiserpermanente.org" target="_blank">kaiserpermanente.org</a></p>
+        </div>
+      </div>
+    
+      <!-- 6. Health Fidelity, Inc – Consultant, Founder Advisor -->
+      <div class="timeline-item">
+        <div class="timeline-date">2009 – 2014</div>
+        <div class="timeline-company">
+          Health Fidelity, Inc. · Consultant, Founder Advisor · Palo Alto, CA
+        </div>
+        <h3 class="timeline-title">Consultant, Founder Advisor</h3>
+        <div class="timeline-description">
+            <p>Provided strategic consulting to leverage advanced technologies for transforming unstructured healthcare data into actionable insights, thereby improving patient care and system efficiency.</p>
+            <p>Website: <a href="https://healthfidelity.com" target="_blank">healthfidelity.com</a></p>
+        </div>
+      </div>
+    
+      <!-- 7. Kaiser Permanente Santa Clara Hospital – Hospital Specialist & Chief Resident -->
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 2011 – Jul 2012</div>
+        <div class="timeline-company">
+          Kaiser Permanente Santa Clara Hospital
+        </div>
+        <h3 class="timeline-title">Hospital Based Specialist &amp; Chief Resident of Internal Medicine</h3>
+        <div class="timeline-description">
+            <p>Served as a Hospital Based Specialist managing complex clinical cases and as Chief Resident, fostering interdisciplinary collaboration and excellence in patient care.</p>
+        </div>
+      </div>
+    
+      <!-- 8. Vanguard Medical Technologies – Consultant, Clinical Informatician -->
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 2009 – Dec 2010</div>
+        <div class="timeline-company">
+          Vanguard Medical Technologies · Consultant · Palo Alto, CA
+        </div>
+        <h3 class="timeline-title">Consultant, Clinical Informatician</h3>
+        <div class="timeline-description">
+            <p>Advised on clinical informatics projects and implemented scalable solutions for healthcare data management, leveraging advanced technologies to enhance decision-making.</p>
+            <p>Website: <a href="https://www.vanguardmedtech.com" target="_blank">vanguardmedtech.com</a> (if available)</p>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+        <!-- Post Graduate Training Section -->
+        <div class="section">
+            <h2 class="section-title">Post Graduate Training</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2013 – Aug 2013</div>
+                    <div class="timeline-company">University of California San Francisco, San Francisco, CA</div>
+                    <h3 class="timeline-title">Designing Clinical Research EPI 150</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2013</div>
+                    <div class="timeline-company">University of Minnesota, Distance Learning</div>
+                    <h3 class="timeline-title">Interprofessional Healthcare Informatics (Coursera)</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2011 – Apr 2012</div>
+                    <div class="timeline-company">Oregon Health Science University, Distance Learning</div>
+                    <h3 class="timeline-title">AMIA 10 x 10 Introduction to Biomedical and Health Informatics (56 CME)</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Honors Section -->
+        <div class="section">
+            <h2 class="section-title">Honors</h2>
+            <ul>
+                <li>National ACP Poster Presentation Award – [April, 2025]</li>
+                <li>American College of Physicians, DC Chapter Sol Katz Teaching Award (Nov 16, 2024)</li>
+                <li>DC ACP 1st Place – Simplification and Gamification of Inpatient Discharge Instructions (2024)</li>
+                <li>Austco Excellence Award Gold Winner for Quality &amp; Patient Safety (Nov 2021)</li>
+                <li>The Joint Commission &amp; National Quality Forum 20th Annual Eisenberg Award (Apr 2022)</li>
+                <li>Lawrence Patient Safety Regional Award – Kaiser Permanente (May 2020)</li>
+                <li>Resident Teacher of the Year – Kaiser Permanente Santa Clara (2010)</li>
+                <li>Intern of the Year – Kaiser Permanente Santa Clara (2009)</li>
+                <li>Meyerhoff Scholar – UMBC (2000)</li>
+            </ul>
+        </div>
+
+<!-- Technical Skills Section -->
+<div class="section">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-container">
+      <!-- Advanced Microsoft Windows -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Advanced Microsoft Windows (Lists, SharePoint, Teams, Flow, Copilot)</span>
+          <span>90%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 90%"></div>
+        </div>
+      </div>
+  
+      <!-- Course Tools -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Course Tools (Coursera)</span>
+          <span>80%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 80%"></div>
+        </div>
+      </div>
+  
+      <!-- Data Visualization -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Data Visualization (Tableau)</span>
+          <span>85%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 85%"></div>
+        </div>
+      </div>
+  
+      <!-- Epic EHR -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Epic EHR (Physician Builder, Super User, Signal &amp; Slicer Dicer)</span>
+          <span>95%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 95%"></div>
+        </div>
+      </div>
+  
+      <!-- AI Tools: OpenAI & Custom GPTs -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>OpenAI &amp; Custom GPTs</span>
+          <span>85%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 85%"></div>
+        </div>
+      </div>
+  
+      <!-- AI Tools: Anthropic & Claude -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Anthropic &amp; Claude</span>
+          <span>80%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 80%"></div>
+        </div>
+      </div>
+  
+      <!-- AI Tools: Google Gemini Vertex AI -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Google Gemini Vertex AI</span>
+          <span>80%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 80%"></div>
+        </div>
+      </div>
+  
+      <!-- AI Tools: Abacus -->
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Abacus AI</span>
+          <span>75%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 75%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- Certifications Section --><!-- Certifications Section -->
+<div class="section">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certifications-grid">
+        <!-- 1. American Board of Internal Medicine -->
+        <div class="certification-item">
+            <div class="certification-icon">
+                <img src="About/abim.png" alt="American Board of Internal Medicine">
+            </div>
+            <div class="certification-info">
+                <h4>American Board of Internal Medicine</h4>
+                <p>Board Certified in Internal Medicine</p>
+            </div>
+        </div>
+        <!-- 2. American Board of Preventive Medicine -->
+        <div class="certification-item">
+            <div class="certification-icon">
+                <img src="About/abpm logo.svg" alt="American Board of Preventive Medicine">
+            </div>
+            <div class="certification-info">
+                <h4>American Board of Preventive Medicine</h4>
+                <p>ABPM-CI Certified in Clinical Informatics</p>
+            </div>
+        </div>
+        <!-- 3. ABAIM Advanced AI Certification -->
+        <div class="certification-item">
+            <div class="certification-icon">
+                <img src="About/abaim.png" alt="ABAIM Advanced AI Certification">
+            </div>
+            <div class="certification-info">
+                <h4>ABAIM Advanced AI Certification</h4>
+                <p>Advanced Certification in Artificial Intelligence for Medicine</p>
+            </div>
+        </div>
+        <!-- 4. Certified Professional in Patient Safety -->
+        <div class="certification-item">
+            <div class="certification-icon">
+                <img src="About/cpps_badge.png" alt="Certified Professional in Patient Safety">
+            </div>
+            <div class="certification-info">
+                <h4>Certified Professional in Patient Safety (CPPS)™</h4>
+                <p>Patient Safety Certification</p>
+            </div>
+        </div>
+        <!-- 5. American Heart Association (ACLS / BLS) -->
+        <div class="certification-item">
+            <div class="certification-icon">
+                <img src="About/aha.png" alt="American Heart Association">
+            </div>
+            <div class="certification-info">
+                <h4>American Heart Association</h4>
+                <p>ACLS / BLS</p>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Honors  -->
+         
+        <div class="section">
+            <h2 class="section-title">Honors</h2>
+            <ul>
+                <li>American College of Physicians, DC Chapter Sol Katz Teaching Award (Nov 16, 2024)</li>
+                <li>DC ACP 1st Place – Simplification and Gamification of Inpatient Discharge Instructions (2024)</li>
+                <li>Austco Excellence Award Gold Winner for Quality &amp; Patient Safety (Nov 2021)</li>
+                <li>The Joint Commission &amp; National Quality Forum 20th Annual Eisenberg Award (Apr 2022)</li>
+                <li>Lawrence Patient Safety Regional Award – Kaiser Permanente (May 2020)</li>
+                <li>Resident Teacher of the Year – Kaiser Permanente Santa Clara (2010)</li>
+                <li>Intern of the Year – Kaiser Permanente Santa Clara (2009)</li>
+                <li>Teaching Artificial Intelligence to Graduate Medical Education Providers – KP Santa Clara (Dec 12, 2024)</li>
+                <li>Resident Grand Rounds: Augmented Intelligence – Generative AI in the Clinical Setting (Dec 11, 2024)</li>
+                <li>Simplification and Gamification of Inpatient Discharge Instructions: Generative AI at Bedside – AIMED 2024, Orlando, FL (Nov 19, 2024)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="theme-toggle.js"></script>
+</body>
+</html>

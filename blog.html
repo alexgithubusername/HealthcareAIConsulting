@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reading - Healthcare AI Consulting</title>
+  <link rel="stylesheet" href="light.css" id="light-theme" disabled>
+  <link rel="stylesheet" href="dark.css" id="dark-theme">
+  <style>
+    /* Add text shadow and background to section titles */
+    .section-header h2 {
+      text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+    }
+    
+    /* Add a background to the section titles in light mode */
+    html[data-theme="light"] .section-header h2 {
+      color: #1e293b;
+      text-shadow: none;
+      font-weight: 800;
+      background-color: rgba(30, 41, 59, 0.05);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    :root {
+      --primary: #2563eb;
+      --secondary: #fbbf24;
+      --background: #ffffff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text-primary);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--surface);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .logo-icon {
+      color: var(--primary);
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-link {
+      text-decoration: none;
+    }
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    .contact-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+    }
+    .section {
+      padding: 5rem 2rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      font-size: 1.25rem;
+    }
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .blog-card {
+      padding: 2rem;
+      border-radius: 0.75rem;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+    }
+    .blog-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .blog-meta {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .blog-link {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .blog-link:hover {
+      color: #1d4ed8;
+    }
+    
+    /* Dropdown Menu Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--surface);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .dropdown-content a {
+      color: var(--text-primary);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-toggle::after {
+      content: "▼";
+      font-size: 0.7em;
+      margin-left: 0.5em;
+      vertical-align: middle;
+    }
+    
+    /* Responsive Dropdown */
+    @media (max-width: 768px) {
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚕️</span> Healthcare AI Consulting
+    </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="about-page.html" class="nav-link">About Me</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="resources.html" class="nav-link">Resources</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="resources.html">Medical Education</a>
+                    <a href="index2.html">AI & Cognition</a>
+                 </div>
+            </div>
+            <a href="blog.html" class="nav-link">Reading</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+                <div class="dropdown-content">
+                    <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+                    <a href="HumanFactor.html">Human Factors Checklist</a>
+                </div>
+            </div>
+        </div>
+    <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
+  </nav>
+
+  <header class="section" style="
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.3), rgba(59, 130, 246, 0.3), rgba(250, 204, 21, 0.2), transparent 70%);
+    background-color: var(--surface);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 40px 20px;
+  ">
+    <div class="container">
+      <div class="section-header">
+        <h2>Curated AI & Healthcare Reading</h2>
+        <p>A selection of top blogs, articles, and resources we follow to stay at the cutting-edge of innovation.</p>
+      </div>
+    </div>
+  </header>
+  
+  <section class="section">
+    <div class="container">
+      <div class="blogs-grid">
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <div class="blog-icon">📰</div>
+          <h3>Karim Hanam's Substack</h3>
+          <p>Insights and commentary on AI, technology, and innovation delivered straight to your inbox.</p>
+          <a href="https://karimhannamd.substack.com/" target="_blank" class="blog-link">Visit Blog →</a>
+        </div>
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <div class="blog-icon">💡</div>
+          <h3>Informatics Professor's Blog</h3>
+          <p>Exploring the intersection of academia and practical informatics in today’s digital age.</p>
+          <a href="https://informaticsprofessor.blogspot.com/" target="_blank" class="blog-link">Visit Blog →</a>
+        </div>
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <div class="blog-icon">📊</div>
+          <h3>AI Analytics</h3>
+          <p>Data-driven insights and in-depth analysis on the evolving trends in artificial intelligence.</p>
+          <a href="https://aianalytics.pro/" target="_blank" class="blog-link">Visit Blog →</a>
+        </div>
+        <!-- Blog 4 -->
+        <div class="blog-card">
+          <div class="blog-icon">🩺</div>
+          <h3>Harvey Castro MD Blog</h3>
+          <p>Clinical perspectives and expert commentary from the forefront of modern healthcare.</p>
+          <a href="https://www.harveycastromd.com/blog" target="_blank" class="blog-link">Visit Blog →</a>
+        </div>
+        <!-- Blog 5 -->
+        <div class="blog-card">
+          <div class="blog-icon">📚</div>
+          <h3>OffCall Learn</h3>
+          <p>Your resource hub for learning about emerging trends in medical technology and innovation.</p>
+          <a href="https://www.offcall.com/learn" target="_blank" class="blog-link">Visit Blog →</a>
+        </div>
+        <!-- Blog 6 -->
+        <div class="blog-card">
+          <div class="blog-icon">🎙️</div>
+          <h3>American College of Artificial Intelligence and Medicine Podcast</h3>
+          <p>Dive into podcasts exploring the fusion of art, technology, and AI from industry leaders.</p>
+          <a href="https://podcasts.apple.com/us/podcast/the-american-college-of-artificial/id1782171211" target="_blank" class="blog-link">Listen Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="theme-toggle.js"></script>
+</body>
+</html>

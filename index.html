@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Consulting - Dr. Alex Dummett</title>
+    <link rel="stylesheet" href="light.css" id="light-theme" disabled>
+    <link rel="stylesheet" href="dark.css" id="dark-theme">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .text-gradient {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .primary-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .secondary-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .services {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .courses {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card p {
+            margin-bottom: 1rem;
+        }
+
+        .course-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-topics {
+            margin-top: 1.5rem;
+        }
+
+        .course-topics h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-link {
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--surface);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: var(--text-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 0.7em;
+            margin-left: 0.5em;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page-content">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            Healthcare AI Consulting
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="about-page.html" class="nav-link">About Me</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="resources.html">Medical Education</a>
+                    <a href="index2.html">AI & Cognition</a>
+                 </div>
+            </div>
+            <a href="blog.html" class="nav-link">Reading</a>
+            <div class="dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+        <div class="dropdown-content">
+          <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+          <a href="HumanFactor.html">Human Factors Checklist</a>
+          <a href="Humanely.html">HumanELY LLM Eval</a>
+        </div>
+      </div>
+        </div>
+        <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transforming Healthcare Through <span class="text-gradient">AI Innovation</span></h1>
+        <p>Led by Dr. Alex Dummett, we specialize in clinical informatics, AI implementation, and advanced medical education to revolutionize healthcare delivery and outcomes.</p>
+        <div class="cta-buttons">
+            <a href="https://calendly.com/b-alex-dummett" class="primary-btn" target="_blank">
+                Schedule Consultation <span>→</span>
+            </a>
+            <a href="courses.html" class="secondary-btn">
+                Explore AI Courses <span>🎓</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Clinical AI Integration</h3>
+                    <p>Expert guidance on implementing AI solutions in clinical workflows and decision support systems.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Medical Education</h3>
+                    <p>Comprehensive AI training programs designed for healthcare professionals and institutions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>Research & Innovation</h3>
+                    <p>Cutting-edge research in clinical informatics and AI applications in healthcare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Education <span class="text-gradient">Programs</span></h2>
+                <p>Advanced courses designed for healthcare professionals</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-icon">📚</div>
+                    <h3>Clinical AI Fundamentals</h3>
+                    <p>Master the basics of AI applications in clinical settings, including machine learning principles, data analysis, and practical implementation strategies.</p>
+                    <div class="course-meta">
+                        <span class="course-meta-icon">⏱️</span>
+                        <span>8 weeks</span>
+                    </div>
+                    <div class="course-meta">
+                        <span class="course-meta-icon">👥</span>
+                        <span>Beginner</span>
+                    </div>
+                    <div class="course-topics">
+                        <h4>Key Topics:</h4>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>AI Basics</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Clinical Applications</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Data Analysis</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Implementation</span>
+                        </div>
+                    </div>
+                    <a href="courses.html" class="course-link">Learn More →</a>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">👥</div>
+                    <h3>Advanced Clinical Informatics</h3>
+                    <p>Deep dive into healthcare data analytics, advanced AI algorithms, and complex clinical decision support systems.</p>
+                    <div class="course-meta">
+                        <span class="course-meta-icon">⏱️</span>
+                        <span>12 weeks</span>
+                    </div>
+                    <div class="course-meta">
+                        <span class="course-meta-icon">👥</span>
+                        <span>Advanced</span>
+                    </div>
+                    <div class="course-topics">
+                        <h4>Key Topics:</h4>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Advanced Analytics</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Neural Networks</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Clinical Integration</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Case Studies</span>
+                        </div>
+                    </div>
+                    <a href="courses.html" class="course-link">Learn More →</a>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">⏱️</div>
+                    <h3>Leadership in Digital Health</h3>
+                    <p>Strategic implementation of AI in healthcare organizations, change management, and digital transformation leadership.</p>
+                    <div class="course-meta">
+                        <span class="course-meta-icon">⏱️</span>
+                        <span>10 weeks</span>
+                    </div>
+                    <div class="course-meta">
+                        <span class="course-meta-icon">👥</span>
+                        <span>Executive</span>
+                    </div>
+                    <div class="course-topics">
+                        <h4>Key Topics:</h4>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Strategy</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Change Management</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Implementation</span>
+                        </div>
+                        <div class="topic-item">
+                            <span class="topic-icon">▶</span>
+                            <span>Leadership</span>
+                        </div>
+                    </div>
+                    <a href="courses.html" class="course-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section -->
+    <section class="courses" id="blog"> <!-- Use 'courses' class for consistent styling -->
+        <div class="container">
+            <div class="section-header">
+                <h2>Blogs We Follow</h2>
+                <p>Discover curated insights from leading voices in AI, healthcare, and clinical education.</p>
+            </div>
+            <div class="courses-grid"> <!-- Use 'courses-grid' for consistent layout -->
+                <!-- Blog 1: The American College of Artificial Podcast -->
+                <div class="course-card"> <!-- Use 'course-card' for consistent styling -->
+                    <div class="course-icon">🎙️</div> <!-- Use 'course-icon' -->
+                    <h3>The American College of Artificial Podcast</h3>
+                    <p>Tune in to cutting-edge discussions on artificial intelligence from industry experts.</p>
+                    <a href="https://podcasts.apple.com/us/podcast/the-american-college-of-artificial/id1782171211" target="_blank" class="course-link">Listen Now →</a> <!-- Use 'course-link' -->
+                </div>
+                <!-- Blog 2: Thalamus GME Blogs -->
+                <div class="course-card">
+                    <div class="course-icon">🩺</div>
+                    <h3>Thalamus GME Blogs</h3>
+                    <p>Explore innovative perspectives on clinical education and medical innovation.</p>
+                    <a href="https://www.thalamusgme.com/blogs" target="_blank" class="course-link">Explore Blogs →</a>
+                </div>
+                <!-- Blog 3: AI Analytics Blog Posts -->
+                <div class="course-card">
+                    <div class="course-icon">📊</div>
+                    <h3>AI Analytics Blog Posts</h3>
+                    <p>Gain data-driven insights and in-depth analyses on emerging AI trends.</p>
+                    <a href="https://aianalytics.pro/blog-posts" target="_blank" class="course-link">Read More →</a>
+                </div>
+                 <!-- Blog 4: Duplicate of Blog 1 -->
+                <div class="course-card">
+                    <div class="course-icon">🎙️</div>
+                    <h3>The American College of Artificial Podcast</h3>
+                    <p>Tune in to cutting-edge discussions on artificial intelligence from industry experts.</p>
+                    <a href="https://podcasts.apple.com/us/podcast/the-american-college-of-artificial/id1782171211" target="_blank" class="course-link">Listen Now →</a>
+                </div>
+                <!-- Blog 5: Duplicate of Blog 2 -->
+                <div class="course-card">
+                    <div class="course-icon">🩺</div>
+                    <h3>Thalamus GME Blogs</h3>
+                    <p>Explore innovative perspectives on clinical education and medical innovation.</p>
+                    <a href="https://www.thalamusgme.com/blogs" target="_blank" class="course-link">Explore Blogs →</a>
+                </div>
+                <!-- Blog 6: Duplicate of Blog 3 -->
+                <div class="course-card">
+                    <div class="course-icon">📊</div>
+                    <h3>AI Analytics Blog Posts</h3>
+                    <p>Gain data-driven insights and in-depth analyses on emerging AI trends.</p>
+                    <a href="https://aianalytics.pro/blog-posts" target="_blank" class="course-link">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>
+    <script src="theme-toggle.js"></script>
+</body>
+</html>

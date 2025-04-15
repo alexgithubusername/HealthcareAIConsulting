@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Consulting Website Structure</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 2px solid #fbbf24;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2563eb;
+            margin-top: 30px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .page {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .page h3 {
+            margin-top: 0;
+            color: #2563eb;
+            border-bottom: 1px solid #fbbf24;
+            padding-bottom: 5px;
+        }
+        .section {
+            background-color: #f9fafb;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .section h4 {
+            margin-top: 0;
+            color: #4b5563;
+        }
+        .component {
+            background-color: #eff6ff;
+            border-left: 3px solid #2563eb;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .file-structure {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .file {
+            font-family: monospace;
+            margin-bottom: 5px;
+        }
+        .folder {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .indent {
+            margin-left: 20px;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .tech {
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Healthcare AI Consulting Website</h1>
+    <p>This is a visual representation of the Next.js application for Dr. Alex Dummett's Healthcare AI Consulting business.</p>
+
+    <div class="tech-stack">
+        <div class="tech">Next.js</div>
+        <div class="tech">TypeScript</div>
+        <div class="tech">Tailwind CSS</div>
+        <div class="tech">Framer Motion</div>
+        <div class="tech">Lucide Icons</div>
+        <div class="tech">Prisma</div>
+    </div>
+
+    <h2>Pages</h2>
+    <div class="container">
+        <div class="page">
+            <h3>Home Page</h3>
+            <div class="section">
+                <h4>Hero Section</h4>
+                <p>Features a heading "Transforming Healthcare Through AI Innovation" with a gradient text effect.</p>
+                <p>Call-to-action buttons for "Schedule Consultation" and "Explore AI Courses".</p>
+            </div>
+            <div class="section">
+                <h4>Services Section</h4>
+                <p>Three service cards with icons:</p>
+                <ul>
+                    <li>Clinical AI Integration</li>
+                    <li>Medical Education</li>
+                    <li>Research & Innovation</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>Course Highlights</h4>
+                <p>Three course cards with details and "Learn More" links:</p>
+                <ul>
+                    <li>Clinical AI Fundamentals</li>
+                    <li>Advanced Clinical Informatics</li>
+                    <li>Leadership in Digital Health</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>About Dr. Dummett</h4>
+                <p>Bio information and expertise areas with icons.</p>
+                <p>Placeholder for Dr. Dummett's image.</p>
+            </div>
+            <div class="section">
+                <h4>Stats Section</h4>
+                <p>Four statistics with numbers and descriptions:</p>
+                <ul>
+                    <li>500+ Healthcare Professionals Trained</li>
+                    <li>50+ AI Implementations</li>
+                    <li>25+ Research Publications</li>
+                    <li>100% Client Satisfaction</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3>Courses Page</h3>
+            <div class="section">
+                <h4>Header</h4>
+                <p>Title "Healthcare AI Education" with gradient text effect.</p>
+                <p>Description of the courses offered.</p>
+            </div>
+            <div class="section">
+                <h4>Course Cards</h4>
+                <p>Three detailed course cards with:</p>
+                <ul>
+                    <li>Title and description</li>
+                    <li>Duration and level</li>
+                    <li>Key topics list</li>
+                    <li>"Learn More" button</li>
+                </ul>
+                <p>Each card has animations and hover effects.</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Components</h2>
+    <div class="container">
+        <div class="page">
+            <h3>Layout Components</h3>
+            <div class="component">
+                <h4>Navbar</h4>
+                <p>Responsive navigation with:</p>
+                <ul>
+                    <li>Logo with Brain icon</li>
+                    <li>Desktop navigation links</li>
+                    <li>Mobile menu with hamburger icon</li>
+                    <li>Contact Us button</li>
+                </ul>
+            </div>
+            <div class="component">
+                <h4>Root Layout</h4>
+                <p>Includes metadata, navbar, and main content area.</p>
+                <p>Uses Inter font from Google Fonts.</p>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3>UI Components</h3>
+            <div class="component">
+                <h4>Shadcn UI Library</h4>
+                <p>Comprehensive set of UI components including:</p>
+                <ul>
+                    <li>Button, Card, Accordion</li>
+                    <li>Alert, Dialog, Dropdown</li>
+                    <li>Form elements, Navigation</li>
+                    <li>And many more...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2>Styling</h2>
+    <div class="container">
+        <div class="page">
+            <h3>Global CSS</h3>
+            <div class="section">
+                <h4>Custom Gradients</h4>
+                <ul>
+                    <li>gradient-bg: Blue to yellow gradient background</li>
+                    <li>hero-gradient: Radial gradient for hero section</li>
+                    <li>text-gradient: Blue to yellow text gradient</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>Animations</h4>
+                <ul>
+                    <li>card-hover: Subtle lift effect on hover</li>
+                    <li>Framer Motion animations for page elements</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3>Tailwind Configuration</h3>
+            <div class="section">
+                <p>Extended theme with custom colors and utilities.</p>
+                <p>Integration with shadcn/ui components.</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>File Structure</h2>
+    <div class="file-structure">
+        <div class="folder">/ (Root)</div>
+        <div class="indent file">package.json</div>
+        <div class="indent file">next.config.js</div>
+        <div class="indent file">tailwind.config.ts</div>
+        <div class="indent file">tsconfig.json</div>
+        <div class="indent file">postcss.config.js</div>
+        <div class="indent file">README.md</div>
+
+        <div class="folder indent">app/</div>
+        <div class="indent indent file">globals.css</div>
+        <div class="indent indent file">layout.tsx</div>
+        <div class="indent indent file">page.tsx</div>
+        <div class="indent indent file">not-found.tsx</div>
+
+        <div class="folder indent indent">courses/</div>
+        <div class="indent indent indent file">page.tsx</div>
+        <div class="indent indent indent file">loading.tsx</div>
+        <div class="indent indent indent file">error.tsx</div>
+
+        <div class="folder indent indent">api/</div>
+
+        <div class="folder indent">components/</div>
+        <div class="indent indent file">theme-provider.tsx</div>
+
+        <div class="folder indent indent">ui/</div>
+        <div class="indent indent indent file">navbar.tsx</div>
+        <div class="indent indent indent file">button.tsx</div>
+        <div class="indent indent indent file">card.tsx</div>
+        <div class="indent indent indent file">... (many UI components)</div>
+
+        <div class="folder indent">lib/</div>
+        <div class="indent indent file">db.ts</div>
+        <div class="indent indent file">types.ts</div>
+        <div class="indent indent file">utils.ts</div>
+
+        <div class="folder indent indent">db/</div>
+
+        <div class="folder indent">prisma/</div>
+        <div class="indent indent file">schema.prisma</div>
+        <div class="indent indent file">dev.db</div>
+    </div>
+</body>
+</html>

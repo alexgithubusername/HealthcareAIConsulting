@@ -1,0 +1,116 @@
+:root {
+    --primary: #2563eb;
+    --secondary: #fbbf24;
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --border: #e2e8f0;
+    --accent: #4f46e5;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+.navbar {
+    background-color: var(--surface);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.course-card, .service-card, .blog-card, .card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-card:hover, .service-card:hover, .blog-card:hover, .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+}
+
+.course-icon, .service-icon, .blog-icon, .card-icon {
+    color: var(--primary);
+}
+
+.primary-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.secondary-btn {
+    background-color: var(--secondary);
+    color: #1f2937;
+}
+
+.secondary-btn:hover {
+    background-color: #f59e0b;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #2563eb, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Header gradient backgrounds */
+header, .hero, .section-header {
+    background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.1), rgba(251, 191, 36, 0.1), transparent 70%);
+    background-color: var(--surface);
+}
+
+/* Section title enhancements */
+.section-title, .category-title {
+    color: var(--text-primary);
+    font-weight: 800;
+}
+
+/* Special styling for section titles in light mode */
+#custom-gpt-title, #gme-tools-title, .section-header h2 {
+    background-color: rgba(30, 41, 59, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Card link styling */
+.card-link, .course-link, .blog-link {
+    color: var(--primary);
+}
+
+.card-link:hover, .course-link:hover, .blog-link:hover {
+    color: #1d4ed8;
+}
+
+/* Checklist card styling for consistent rounded corners */
+.front, .back {
+    border-radius: 12px;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.card-inner {
+    border-radius: 12px;
+}
+
+/* Dropdown toggle arrow styling for light mode */
+.dropdown-toggle::after {
+    content: "▼";
+    font-size: 0.7em;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    color: var(--text-primary);
+}

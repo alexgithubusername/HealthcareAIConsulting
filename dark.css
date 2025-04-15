@@ -1,0 +1,229 @@
+:root {
+    --primary: #3b82f6;
+    --secondary: #facc15;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --border: #334155;
+    --accent: #6366f1;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+.navbar {
+    background-color: var(--surface);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    color: var(--text-primary);
+}
+
+.logo-icon {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.contact-btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--surface);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: var(--text-primary);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-toggle::after {
+    content: "▼";
+    font-size: 0.7em;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}
+
+.course-card, .service-card, .blog-card, .card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+.course-card:hover, .service-card:hover, .blog-card:hover, .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+.course-icon, .service-icon, .blog-icon, .card-icon {
+    color: var(--secondary);
+    text-shadow: 0 0 5px rgba(250, 204, 21, 0.3);
+}
+
+.primary-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--accent);
+    box-shadow: 0 0 8px var(--primary);
+}
+
+.secondary-btn {
+    background-color: var(--secondary);
+    color: var(--background);
+}
+
+.secondary-btn:hover {
+    background-color: #eab308;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Header gradient backgrounds */
+header, .hero, .section-header {
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.3), rgba(59, 130, 246, 0.3), rgba(250, 204, 21, 0.2), transparent 70%);
+    background-color: var(--surface);
+}
+
+/* Section title enhancements */
+.section-title, .category-title {
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Card link styling */
+.card-link, .course-link, .blog-link {
+    color: var(--primary);
+}
+
+.card-link:hover, .course-link:hover, .blog-link:hover {
+    color: var(--accent);
+}
+
+/* Checklist card styling */
+.front h2, .back h2 {
+    color: #047857;
+    font-weight: bold;
+}
+
+.checkbox {
+    color: #333333;
+    font-weight: 500;
+}
+
+.front {
+    background: #f9fafb;
+}
+
+.back {
+    background: #e0f2fe;
+}
+
+/* Make checkbox text darker and more readable */
+.checkbox {
+    color: #000000;
+}
+
+/* Make back card text darker and more readable */
+.back p {
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Make citation markers more visible */
+.citation-marker {
+    color: #065f46;
+    font-weight: bold;
+}
+
+/* Make card titles more visible */
+.card-title, .sticky-title {
+    color: #000000;
+    font-weight: 700;
+}
+
+/* Ensure consistent rounded corners for checklist cards */
+.front, .back {
+    border-radius: 12px;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.card-inner {
+    border-radius: 12px;
+}

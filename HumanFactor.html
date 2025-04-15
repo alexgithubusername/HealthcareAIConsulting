@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Factors Evaluation Checklist - Healthcare AI Consulting</title>
+  <link rel="stylesheet" href="light.css" id="light-theme" disabled>
+  <link rel="stylesheet" href="dark.css" id="dark-theme">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 1rem;
+      font-size: 14px;
+      color: #111;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1f2937;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .reset-button {
+      display: block;
+      margin: 0 auto 1.5rem auto;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
+      background-color: #ef4444;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .reset-button:hover {
+      background-color: #dc2626;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      perspective: 1000px;
+      min-height: 190px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    .front {
+      background: #f9fafb;
+      border-left: 5px solid #10b981;
+    }
+    .back {
+      background: #e0f2fe;
+      transform: rotateY(180deg);
+      border-left: 5px solid #0284c7;
+      justify-content: center;
+    }
+    h2 {
+      font-size: 1rem;
+      color: #047857;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .back h2 {
+      color: #0369a1;
+    }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      position: relative;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .checkbox:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      background: #111;
+      color: #fff;
+      padding: 0.4rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .checkbox:hover::after {
+      opacity: 1;
+    }
+    .complete {
+      text-decoration: line-through;
+      color: #6b7280;
+    }
+    .citation-marker {
+      font-size: 0.7em;
+      vertical-align: super;
+      margin-left: 2px;
+      color: #065f46;
+      text-decoration: none;
+    }
+    .citation-marker:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      font-size: 0.85rem;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+    }
+    th {
+      background: #f9fafb;
+      text-align: left;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--surface);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    
+    .logo-icon {
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: color 0.3s;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    .contact-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .contact-btn:hover {
+      background-color: #1d4ed8;
+    }
+    
+    /* Dropdown Menu Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--surface);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .dropdown-content a {
+      color: var(--text-primary);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-toggle::after {
+      content: "▼";
+      font-size: 0.7em;
+      margin-left: 0.5em;
+      vertical-align: middle;
+    }
+    
+    /* Responsive Dropdown */
+    @media (max-width: 768px) {
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="healthcare-ai-website.html" class="logo">
+      <span class="logo-icon">⚕️</span>
+      Healthcare AI Consulting
+    </a>
+    <div class="nav-links">
+      <a href="healthcare-ai-website.html" class="nav-link">Home</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="about-page.html" class="nav-link">About Me</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="blog.html" class="nav-link">Reading</a>
+      <div class="dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+        <div class="dropdown-content">
+          <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+          <a href="HumanFactor.html">Human Factors Checklist</a>
+          <a href="Humanely.html">HumanELY LLM Eval</a>
+        </div>
+      </div>
+    </div>
+    <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
+  </nav>
+
+  <div class="container">
+    <h1>Human Factors Evaluation Checklist for Medical Device 510(k) Approval</h1>
+    <button id="reset-button" class="reset-button">Reset Checklist</button>
+    <div class="grid">
+
+      <!-- Section 1: Executive Summary -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Executive Summary</h2>
+            <label class="checkbox" data-tooltip="Summarize the business case and key benefits of HFE.">
+              <input type="checkbox"> Outline strategic advantages of early human factors integration
+            </label>
+            <label class="checkbox" data-tooltip="Highlight how proactive HFE reduces recalls and delays.">
+              <input type="checkbox"> Identify risk mitigation benefits
+            </label>
+            <label class="checkbox" data-tooltip="Emphasize cost savings and improved patient safety.">
+              <input type="checkbox"> Recognize financial and safety benefits
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Executive Summary</h2>
+            <p>The business case underscores that early and comprehensive human factors evaluations are a strategic investment, ensuring regulatory compliance, cost savings, enhanced patient safety, and market competitiveness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Regulatory Imperative -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Regulatory Imperative</h2>
+            <label class="checkbox" data-tooltip="Reference FDA's guidance on human factors in 510(k) submissions.">
+              <input type="checkbox"> Verify compliance with FDA Human Factors guidance <a href="#ref12" class="citation-marker">[12]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Document usability assessments and risk analysis.">
+              <input type="checkbox"> Document use-related risk analysis
+            </label>
+            <label class="checkbox" data-tooltip="Tailor efforts based on risk categorization (Categories 1-3).">
+              <input type="checkbox"> Assess risk category per FDA guidelines
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Regulatory Imperative</h2>
+            <p>FDA guidance demands thorough human factors and usability engineering assessments in 510(k) submissions. These evaluations must document intended users, use environments, and risk controls, aligning with both FDA requirements and international standards like IEC 62366.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Risk Mitigation Strategies -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Risk Mitigation Strategies</h2>
+            <label class="checkbox" data-tooltip="Plan formative and summative usability tests.">
+              <input type="checkbox"> Perform iterative usability testing
+            </label>
+            <label class="checkbox" data-tooltip="Implement a comprehensive Use-Related Risk Analysis (URRA).">
+              <input type="checkbox"> Conduct thorough use-related risk assessments <a href="#ref13" class="citation-marker">[13]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Modify device design based on early feedback.">
+              <input type="checkbox"> Incorporate design improvements from user feedback
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Risk Mitigation</h2>
+            <p>Robust usability testing and detailed risk analysis are crucial for identifying potential use errors. Mitigation efforts must be iterative, ensuring that design modifications address critical user-related risks effectively.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Strategic Advantage -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Strategic Advantage</h2>
+            <label class="checkbox" data-tooltip="Integrate human factors early to reduce costly redesigns.">
+              <input type="checkbox"> Adopt early human factors integration
+            </label>
+            <label class="checkbox" data-tooltip="Minimize delays and avoid product recalls through proactive HFE.">
+              <input type="checkbox"> Reduce approval delays and recalls <a href="#ref14" class="citation-marker">[14]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Gain a competitive edge with superior device usability.">
+              <input type="checkbox"> Leverage HFE for competitive differentiation
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Strategic Advantage</h2>
+            <p>Early integration of human factors in the design process leads to streamlined development, fewer costly redesigns, and faster regulatory approval, providing a significant competitive advantage in the marketplace.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Enhancing User Experience & Patient Safety -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>User Experience & Patient Safety</h2>
+            <label class="checkbox" data-tooltip="Ensure the UI is intuitive and minimizes use errors.">
+              <input type="checkbox"> Design user-centric interfaces
+            </label>
+            <label class="checkbox" data-tooltip="Deploy usability tests to verify safe and effective device operation.">
+              <input type="checkbox"> Validate interface safety with real users
+            </label>
+            <label class="checkbox" data-tooltip="Incorporate clinician training to improve overall device use.">
+              <input type="checkbox"> Implement comprehensive user training
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: User Experience & Safety</h2>
+            <p>An intuitive and well-tested user interface reduces the probability of use errors, enhances training effectiveness, and ultimately improves patient safety and outcomes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Financial Payoff & ROI -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Financial Payoff & ROI</h2>
+            <label class="checkbox" data-tooltip="Evaluate cost savings from reduced training and support.">
+              <input type="checkbox"> Analyze training cost reduction
+            </label>
+            <label class="checkbox" data-tooltip="Quantify avoided costs from reduced product recalls and liability.">
+              <input type="checkbox"> Quantify recall and liability cost avoidance <a href="#ref15" class="citation-marker">[15]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Estimate revenue improvements from enhanced market adoption.">
+              <input type="checkbox"> Project increased market share and revenue
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Financial ROI</h2>
+            <p>Comprehensive human factors evaluations reduce long-term costs through decreased training, fewer support calls, and avoidance of expensive product recalls while improving market competitiveness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 7: Competitive Advantage -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Competitive Advantage</h2>
+            <label class="checkbox" data-tooltip="Enhance device reputation with superior usability.">
+              <input type="checkbox"> Build strong brand reputation through usability
+            </label>
+            <label class="checkbox" data-tooltip="Demonstrate proactive regulatory compliance.">
+              <input type="checkbox"> Achieve rapid regulatory approval <a href="#ref16" class="citation-marker">[16]</a>
+            </label>
+            <label class="checkbox" data-tooltip="Establish trust with clinicians and patients.">
+              <input type="checkbox"> Foster user trust and satisfaction
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Competitive Advantage</h2>
+            <p>Investing in human factors not only enhances device safety and effectiveness but also differentiates products in a competitive market, leading to faster regulatory approvals and improved user trust.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8: Conclusion & Recommendations -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="front">
+            <h2>Conclusion & Recommendations</h2>
+            <label class="checkbox" data-tooltip="Integrate human factors early in the development lifecycle.">
+              <input type="checkbox"> Incorporate HFE from conception through post-market
+            </label>
+            <label class="checkbox" data-tooltip="Ensure thorough documentation and validation of usability testing.">
+              <input type="checkbox"> Document HFE activities comprehensively
+            </label>
+            <label class="checkbox" data-tooltip="Continuously improve device design using user feedback and risk analysis.">
+              <input type="checkbox"> Implement iterative design improvements
+            </label>
+          </div>
+          <div class="back">
+            <h2>Insights: Conclusion & Recommendations</h2>
+            <p>A robust human factors evaluation process is critical for ensuring safety, enhancing user experience, reducing financial risk, and achieving competitive advantage in the regulated environment of medical device 510(k) submissions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- End grid -->
+
+    <!-- References for Human Factors Evaluation -->
+    <section id="references-human-factors" style="margin-top:2rem;">
+      <h2 style="text-align:center; color:#1f2937; font-size:1.5rem; margin-bottom:1rem;">References: Human Factors Evaluation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="ref12">
+            <td>12</td>
+            <td>Applying Human Factors and Usability Engineering to Medical Devices</td>
+            <td><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/applying-human-factors-and-usability-engineering-medical-devices" target="_blank">FDA Guidance</a></td>
+            <td>Final guidance document (2016) emphasizing the importance of HFE in medical device safety and regulatory submissions.</td>
+          </tr>
+          <tr id="ref13">
+            <td>13</td>
+            <td>Content of Human Factors Information in Medical Device Marketing Submissions</td>
+            <td><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/content-human-factors-information-medical-device-marketing-submissions" target="_blank">FDA Guidance Draft</a></td>
+            <td>Draft guidance outlining required HFE data for 510(k) submissions.</td>
+          </tr>
+          <tr id="ref14">
+            <td>14</td>
+            <td>Human Factors: An Investment that Pays for Itself</td>
+            <td><a href="https://www.mpo-mag.com/human-factors-an-investment-that-pays-for-itself/" target="_blank">MPO Article</a></td>
+            <td>Discusses the financial benefits and strategic advantages of robust human factors evaluations in medical device development.</td>
+          </tr>
+          <tr id="ref15">
+            <td>15</td>
+            <td>Cost Implications of Medical Device Recalls</td>
+            <td><a href="https://pubmed.ncbi.nlm.nih.gov/28399713/" target="_blank">PubMed Analysis</a></td>
+            <td>Analyzes the financial impact of product recalls attributed to design issues related to human factors.</td>
+          </tr>
+          <tr id="ref16">
+            <td>16</td>
+            <td>FDA and IEC 62366: Usability Standards for Medical Devices</td>
+            <td><a href="https://www.aami.org/training/training-suites/human-factors/human-factors-for-medical-devices" target="_blank">AAMI Resources</a></td>
+            <td>Covers international standards and regulatory requirements for human factors engineering in medical device development.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </div> <!-- End container -->
+
+  <script>
+    // Handle checkbox state changes and label styling
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        const label = this.closest('label');
+        if (this.checked) {
+          label.classList.add('complete');
+        } else {
+          label.classList.remove('complete');
+        }
+      });
+    });
+
+    // Handle card flipping based on checkbox completion
+    document.querySelectorAll('.card').forEach(card => {
+      const checkboxes = card.querySelectorAll('.front input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+          if (allChecked) {
+            card.classList.add('flipped');
+          } else {
+            card.classList.remove('flipped');
+          }
+        });
+      });
+    });
+
+    // Reset functionality
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', () => {
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+        const label = checkbox.closest('label');
+        if (label) {
+          label.classList.remove('complete');
+        }
+      });
+      document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('flipped');
+      });
+    });
+  </script>
+  
+  <script src="theme-toggle.js"></script>
+</body>
+</html>

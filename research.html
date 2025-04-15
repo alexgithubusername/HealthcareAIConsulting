@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Studies - AI & Human Cognition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-gray-800">
+
+    <header class="sticky-header">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+             <div class="text-xl font-bold text-gray-900">
+                <a href="index.html">AI & Human Cognition</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                 <a href="concepts.html" class="nav-item text-gray-600 font-medium">Key Concepts</a>
+                 <a href="impact.html" class="nav-item text-gray-600 font-medium">Impact Areas</a>
+                 <a href="challenges.html" class="nav-item text-gray-600 font-medium">Core Challenges</a>
+                  <a href="research.html" class="nav-item text-gray-600 font-medium nav-active">Research & Studies</a>
+                 <a href="mitigation.html" class="nav-item text-gray-600 font-medium">Mitigation</a>
+                <div class="relative">
+                    <input type="search" placeholder="Search topics..." class="px-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="concepts.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Key Concepts</a>
+            <a href="impact.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Impact Areas</a>
+            <a href="challenges.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Core Challenges</a>
+            <a href="research.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 nav-active">Research & Studies</a>
+            <a href="mitigation.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Mitigation</a>
+             <div class="px-4 py-3">
+                 <input type="search" placeholder="Search topics..." class="w-full px-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            </div>
+        </div>
+    </header>
+
+    <main>
+         <section class="bg-gray-100 py-12 lg:py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">Research & Studies Highlights</h1>
+                <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">Key findings from academic papers, reports, and articles exploring AI's cognitive impact.</p>
+            </div>
+        </section>
+
+        <section id="research-details" class="py-16 lg:py-24 bg-white">
+            <div class="container mx-auto px-4 space-y-12 max-w-4xl">
+
+                <article id="research-bias" class="scroll-mt-24 bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Automation Bias & Complacency Research</h2>
+                    <ul class="list-disc list-outside space-y-3 pl-5 text-gray-700">
+                        <li>A systematic review (PMC) focusing on healthcare Decision Support Systems (DSS) found that erroneous AI advice significantly increased the risk of incorrect decisions (by 26% in a meta-analysis of 4 studies). "Negative consultations" (correct initial decision changed to incorrect after faulty AI advice) occurred in 6-11% of cases.</li>
+                        <li>Factors influencing bias include user characteristics (experience, trust calibration), DSS design (confidence display, information vs. recommendation mode), task complexity, and environmental pressures (time, workload) (PMC Review, Wikipedia).</li>
+                        <li>The CSET report emphasizes that automation bias endangers meaningful human control over AI systems and notes an increase in incidents where humans failed to correct AI errors.</li>
+                        <li>Complacency, or reduced vigilance due to trust in automation, is highlighted as a major threat in aviation, often linked to automation bias (PilotsWhoAskWhy, Bainbridge).</li>
+                        <li>Clear empirical evidence for bias is sometimes lacking due to incidental reporting, and the concepts of bias and complacency need further definitional clarity and research (PMC Review).</li>
+                    </ul>
+                     <p class="text-sm text-gray-500 mt-4">Sources: CSET, Wikipedia, PMC Review, Bainbridge, PilotsWhoAskWhy</p>
+                </article>
+
+                <article id="research-deskilling" class="scroll-mt-24 bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Deskilling & Upskilling Research</h2>
+                     <ul class="list-disc list-outside space-y-3 pl-5 text-gray-700">
+                        <li>Kevin Crowston's review highlights multiple studies suggesting Generative AI leads to deskilling or "leveling":
+                            <ul class="list-disc list-outside space-y-1 pl-5 mt-1">
+                                <li>Customer chat analysis: 34% productivity gain for novices, minimal for experts.</li>
+                                <li>BCG consultants using ChatGPT-4: Stronger positive effect on lower-performing consultants.</li>
+                                <li>GitHub Copilot for coding: Greater time savings for less experienced developers.</li>
+                                <li>Writing task with ChatGPT: Participants scoring worse initially improved more; many used output with little editing.</li>
+                            </ul>
+                        </li>
+                        <li>These findings suggest GAI can spread best practices but may reduce the need for high-level skills in certain tasks.</li>
+                        <li>Deskilling is defined as the elimination of skilled labor due to technology operated by lower-skilled workers; professional deskilling involves automation reducing specialized skills in professional fields (Wikipedia).</li>
+                         <li>Crowston proposes a model considering Humans, LLMs, Outputs, and Tasks to understand GAI's impact and suggests allowing prompt tweaking might foster expertise.</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-4">Sources: Crowston, Wikipedia</p>
+                </article>
+
+                <article id="research-critical-thinking" class="scroll-mt-24 bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Critical Thinking Research</h2>
+                     <ul class="list-disc list-outside space-y-3 pl-5 text-gray-700">
+                        <li>A Microsoft Research survey of 319 knowledge workers using GenAI found:
+                            <ul class="list-disc list-outside space-y-1 pl-5 mt-1">
+                                <li>GenAI reduces perceived effort for critical thinking but encourages over-reliance.</li>
+                                <li>Confidence in AI negatively correlates with enacting critical thinking; self-confidence and tendency to reflect correlate positively.</li>
+                                <li>Effort shifts: from information gathering to verification (Knowledge/Comprehension); from problem-solving to AI integration (Application); from task execution to task stewardship/evaluation (Analysis/Synthesis/Evaluation).</li>
+                                <li>Motivators for critical thinking: work quality, negative outcomes, skill development.</li>
+                                <li>Inhibitors: lack of awareness, motivation (time/incentives), or ability (self-doubt).</li>
+                            </ul>
+                        </li>
+                        <li>Graham Walker (MD) notes personal tendency to use AI less for core skills (emergency medicine) and more for less familiar areas or to reduce cognitive load, questioning if medicine might "forget how to walk."</li>
+                        <li>Concerns exist that replacing thinking takes us further from our potential (Nurse Practitioner comment via Walker).</li>
+                        <li>A brief news report cited a study finding people entrusting tasks to AI lose critical thinking skills (Study Finds That People...).</li>
+                         <li>The NSTA article likely discusses similar concerns within science education.</li>
+                    </ul>
+                     <p class="text-sm text-gray-500 mt-4">Sources: Microsoft Research, Walker, Study Finds That People..., NSTA</p>
+                </article>
+
+                <article id="research-ironies" class="scroll-mt-24 bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Ironies of Automation Research (Bainbridge)</h2>
+                    <ul class="list-disc list-outside space-y-3 pl-5 text-gray-700">
+                        <li>Lisanne Bainbridge's seminal paper argues that advanced automation doesn't eliminate the need for human skill but changes its nature and can paradoxically increase its importance during failures.</li>
+                        <li>Key points:
+                            <ul class="list-disc list-outside space-y-1 pl-5 mt-1">
+                                <li>Manual control skills deteriorate without practice.</li>
+                                <li>Cognitive skills (system knowledge, situational awareness/working storage) are crucial for intervention but harder to develop/maintain under automation due to lack of active engagement.</li>
+                                <li>Automation can mask the development of problems, leading to reduced vigilance ("learned carelessness").</li>
+                                <li>Interface design (VDUs) is critical for supporting operator monitoring and understanding.</li>
+                                <li>Automation should ideally make the operator's task *more* skilled (supervision, planning, handling exceptions) rather than less.</li>
+                            </ul>
+                        </li>
+                        <li>The paper emphasizes designing automation with the human role explicitly in mind to maintain skills and ensure effective intervention capability.</li>
+                    </ul>
+                     <p class="text-sm text-gray-500 mt-4">Source: Bainbridge</p>
+                </article>
+
+                 <div class="mt-16 text-center">
+                     <h3 class="text-2xl font-semibold mb-4 text-gray-800">Visualizing the Impact</h3>
+                     <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 max-w-4xl mx-auto h-72 flex items-center justify-center text-gray-500">
+                        [Placeholder: Interactive chart showing AI impact on different skill levels or error rates based on research]
+                     </div>
+                 </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                 <div>
+                    <h4 class="text-xl font-bold text-white mb-4">AI & Human Cognition</h4>
+                    <p class="text-sm mb-4">Exploring the intersection of AI and human capabilities.</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Navigate</h5>
+                    <ul class="space-y-2">
+                        <li><a href="concepts.html" class="hover:text-white text-sm">Key Concepts</a></li>
+                        <li><a href="impact.html" class="hover:text-white text-sm">Impact Areas</a></li>
+                        <li><a href="challenges.html" class="hover:text-white text-sm">Core Challenges</a></li>
+                        <li><a href="research.html" class="hover:text-white text-sm nav-active">Research</a></li>
+                        <li><a href="mitigation.html" class="hover:text-white text-sm">Mitigation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Related Topics</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Cognitive Science</a></li>
+                        <li><a href="#" class="hover:text-white">AI Ethics</a></li>
+                        <li><a href="#" class="hover:text-white">Future of Work</a></li>
+                        <li><a href="#" class="hover:text-white">Educational Technology</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h5 class="font-semibold text-white mb-4">About</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Project Goals</a></li>
+                        <li><a href="#" class="hover:text-white">Sources & Credits</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
+                &copy; 2025 AI Cognition Project. Information synthesized from provided sources.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.querySelector('.sticky-header');
+
+        menuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        window.addEventListener('scroll', () => { header.classList.toggle('shadow-md', window.scrollY > 10); });
+
+        // Smooth scroll for internal links (useful on this page)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                 if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+                const targetId = this.getAttribute('href');
+                 if (targetId === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = header.offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // Extra padding
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

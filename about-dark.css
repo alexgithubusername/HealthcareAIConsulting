@@ -1,0 +1,141 @@
+/* Dark Theme Stylesheet for About Page */
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #facc15;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --border: #334155;
+    --accent: #6366f1;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+.navbar {
+    background-color: var(--surface);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: var(--text-primary);
+}
+
+.logo-icon {
+    color: var(--primary);
+}
+
+.nav-link {
+    color: var(--text-secondary);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.contact-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.contact-btn:hover {
+    background-color: var(--accent);
+    box-shadow: 0 0 8px var(--primary);
+}
+
+.header-section, .section {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+.profile-title h1 {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+.profile-title p, .bio p {
+    color: var(--text-secondary);
+}
+
+.section-title {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+.section-title::after {
+    background-color: var(--primary);
+}
+
+.timeline-item {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+.timeline-date {
+    background-color: var(--primary);
+    color: white;
+}
+
+.timeline-company {
+    color: var(--text-secondary);
+}
+
+.timeline-title {
+    color: var(--text-primary);
+}
+
+.timeline-description p, .timeline-description li {
+    color: var(--text-secondary);
+}
+
+.timeline-description a {
+    color: var(--primary);
+}
+
+.timeline-description a:hover {
+    color: var(--accent);
+}
+
+.skill-info {
+    color: var(--text-secondary);
+}
+
+.skill-bar {
+    background-color: var(--border);
+}
+
+.skill-progress {
+    background-color: var(--primary);
+}
+
+.certification-item, .project-item {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.certification-info h4, .project-info h3 {
+    color: var(--text-primary);
+}
+
+.certification-info p, .project-info p {
+    color: var(--text-secondary);
+}
+
+.section ul li {
+    color: var(--text-secondary);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    text-decoration: none;
+}

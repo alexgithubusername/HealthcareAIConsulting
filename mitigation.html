@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitigation Strategies - AI & Human Cognition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-gray-800">
+
+    <header class="sticky-header">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+             <div class="text-xl font-bold text-gray-900">
+                <a href="index.html">AI & Human Cognition</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                 <a href="concepts.html" class="nav-item text-gray-600 font-medium">Key Concepts</a>
+                 <a href="impact.html" class="nav-item text-gray-600 font-medium">Impact Areas</a>
+                 <a href="challenges.html" class="nav-item text-gray-600 font-medium">Core Challenges</a>
+                 <a href="research.html" class="nav-item text-gray-600 font-medium">Research & Studies</a>
+                  <a href="mitigation.html" class="nav-item text-gray-600 font-medium nav-active">Mitigation</a>
+                <div class="relative">
+                    <input type="search" placeholder="Search topics..." class="px-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="concepts.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Key Concepts</a>
+            <a href="impact.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Impact Areas</a>
+            <a href="challenges.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Core Challenges</a>
+            <a href="research.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Research & Studies</a>
+            <a href="mitigation.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 nav-active">Mitigation</a>
+             <div class="px-4 py-3">
+                 <input type="search" placeholder="Search topics..." class="w-full px-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            </div>
+        </div>
+    </header>
+
+    <main>
+         <section class="bg-gray-100 py-12 lg:py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">Mitigation Strategies</h1>
+                <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">Approaches to address the challenges of automation bias, deskilling, and critical thinking erosion.</p>
+            </div>
+        </section>
+
+        <section id="mitigation-details" class="py-16 lg:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <p class="text-gray-700 mb-8 text-center">Addressing the complex impacts of AI requires a multi-faceted approach involving training, design, procedure, and policy. Based on the reviewed research, here are key mitigation strategies:</p>
+
+                <div class="space-y-8">
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                        <h2 class="text-xl font-semibold text-blue-900 mb-3">1. Enhance Training and Awareness</h2>
+                        <ul class="list-disc list-outside space-y-2 pl-5 text-gray-700">
+                            <li>Conduct effective training focused on AI system limitations, potential biases, and the nature of automation bias itself (Wikipedia, PMC Review).</li>
+                            <li>Raise user awareness about the risks of complacency and the importance of active monitoring (PilotsWhoAskWhy).</li>
+                            <li>Train users not just on *how* the system works, but *when* and *why* it might fail or be unreliable.</li>
+                            <li>For critical thinking, explicitly teach verification strategies and metacognitive skills for evaluating AI outputs (Implied from Microsoft Research).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                        <h2 class="text-xl font-semibold text-green-900 mb-3">2. Implement Human-Centered AI Design</h2>
+                        <ul class="list-disc list-outside space-y-2 pl-5 text-gray-700">
+                            <li>Design interfaces that clearly communicate the AI's confidence level or uncertainty in its outputs (PMC Review).</li>
+                            <li>Ensure displays are compatible with human cognitive processes and make critical information salient (Bainbridge).</li>
+                            <li>Design AI tools to support and scaffold critical thinking (e.g., prompting verification, highlighting assumptions) rather than just providing answers (Microsoft Research).</li>
+                            <li>Consider modes that require active user participation or confirmation for critical decisions.</li>
+                            <li>Design systems to maintain operator skills, perhaps through adaptive automation or periodic requirements for manual control/review (Bainbridge).</li>
+                             <li>Allow users to interact with and refine AI processes (e.g., prompt tweaking) to build expertise and improve results (Crowston).</li>
+                        </ul>
+                    </div>
+
+                     <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                        <h2 class="text-xl font-semibold text-yellow-900 mb-3">3. Establish Clear Procedures & Accountability</h2>
+                        <ul class="list-disc list-outside space-y-2 pl-5 text-gray-700">
+                            <li>Implement Standard Operating Procedures (SOPs) that define roles for human oversight and monitoring, especially in team settings (PilotsWhoAskWhy).</li>
+                            <li>Increase user accountability for decisions made with AI assistance, counteracting the tendency to blindly follow AI suggestions (PMC Review).</li>
+                            <li>Encourage active verification and cross-referencing of AI-generated information against reliable external sources (Microsoft Research).</li>
+                            <li>Develop protocols for handling AI failures or disagreements between human judgment and AI output.</li>
+                        </ul>
+                    </div>
+
+                     <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                        <h2 class="text-xl font-semibold text-purple-900 mb-3">4. Focus on Curation, Policy & Standards</h2>
+                        <ul class="list-disc list-outside space-y-2 pl-5 text-gray-700">
+                            <li>In education, prioritize curated, fact-based AI systems over free, potentially unreliable or engagement-optimized models (Chilton).</li>
+                            <li>Explore certification standards for AI tools used in critical domains like education or healthcare to validate safety and accuracy (Chilton).</li>
+                            <li>Encourage peer review processes for AI systems, similar to academic research (Chilton).</li>
+                            <li>Consider policies around data usage and transparency for AI training and operation.</li>
+                            <li>Promote cross-sector collaboration to address systemic issues related to AI accuracy, bias, and impact on skills (Chilton).</li>
+                        </ul>
+                    </div>
+
+                </div>
+                 <p class="text-gray-700 mt-12 text-center">These strategies aim to create a more balanced and beneficial relationship between humans and AI, leveraging AI's strengths while mitigating its potential downsides to cognitive function and skill.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                 <div>
+                    <h4 class="text-xl font-bold text-white mb-4">AI & Human Cognition</h4>
+                    <p class="text-sm mb-4">Exploring the intersection of AI and human capabilities.</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Navigate</h5>
+                    <ul class="space-y-2">
+                        <li><a href="concepts.html" class="hover:text-white text-sm">Key Concepts</a></li>
+                        <li><a href="impact.html" class="hover:text-white text-sm">Impact Areas</a></li>
+                        <li><a href="challenges.html" class="hover:text-white text-sm">Core Challenges</a></li>
+                        <li><a href="research.html" class="hover:text-white text-sm">Research</a></li>
+                        <li><a href="mitigation.html" class="hover:text-white text-sm nav-active">Mitigation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Related Topics</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Cognitive Science</a></li>
+                        <li><a href="#" class="hover:text-white">AI Ethics</a></li>
+                        <li><a href="#" class="hover:text-white">Future of Work</a></li>
+                        <li><a href="#" class="hover:text-white">Educational Technology</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h5 class="font-semibold text-white mb-4">About</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Project Goals</a></li>
+                        <li><a href="#" class="hover:text-white">Sources & Credits</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
+                &copy; 2025 AI Cognition Project. Information synthesized from provided sources.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.querySelector('.sticky-header');
+
+        menuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        window.addEventListener('scroll', () => { header.classList.toggle('shadow-md', window.scrollY > 10); });
+
+        // Smooth scroll for internal links (if any are added)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                 if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+                const targetId = this.getAttribute('href');
+                 if (targetId === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = header.offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // Extra padding
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

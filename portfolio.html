@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Dr. Alex Dummett</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about-light.css" id="light-theme" disabled>
+    <link rel="stylesheet" href="about-dark.css" id="dark-theme">
+    <style>
+        /* Keep existing styles, but they will be overridden by about-dark.css where applicable */
+        :root {
+            /* Define original variables - they might be overridden by about-dark.css */
+            --primary: #2563eb;
+            --secondary: #fbbf24;
+            --background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .contact-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .header-section {
+            padding: 30px;
+            border-radius: 0.75rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .profile-title h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-title p {
+            margin-bottom: 5px;
+        }
+
+        .bio {
+            margin-bottom: 20px;
+        }
+
+        .section {
+            padding: 40px;
+            border-radius: 0.75rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .timeline-item {
+            border-radius: 0.75rem;
+            padding: 20px;
+            position: relative;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-company {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description ul {
+            list-style-type: none;
+        }
+
+        .timeline-description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 5px;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 0.75rem;
+        }
+
+        .certification-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certification-icon img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .certification-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .certification-info p {
+            font-size: 14px;
+        }
+
+        .projects-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .project-item {
+            display: flex;
+            padding: 20px;
+            border-radius: 0.75rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .project-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 14px;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--surface);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: var(--text-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 0.7em;
+            margin-left: 0.5em;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+        }
+
+        header {
+            padding: 40px 20px;
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.3), rgba(59, 130, 246, 0.3), rgba(250, 204, 21, 0.2), transparent 70%);
+            background-color: var(--surface);
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+}
+
+.carousel-nav button {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            Healthcare AI Consulting
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="about-page.html" class="nav-link">About Me</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="resources.html">Medical Education</a>
+                    <a href="index2.html">AI & Cognition</a>
+                 </div>
+            </div>
+            <a href="blog.html" class="nav-link">Reading</a>
+            <div class="dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+        <div class="dropdown-content">
+          <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+          <a href="HumanFactor.html">Human Factors Checklist</a>
+          <a href="Humanely.html">HumanELY LLM Eval</a>
+        </div>
+      </div>
+        <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
+    </nav>
+    <header>
+        <h1>Portfolio</h1>
+        <!-- Optional: Add a subtitle paragraph if desired -->
+        <!-- <p>Subtitle for the portfolio page</p> -->
+    </header>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-slide active"><a href="https://youtu.be/cCCLdqVR0gM?si=HUf_JYsp4tFZtNjX" target="_blank" rel="noopener noreferrer"><img src="images/AAM2.png" alt="Presentation 1"></a></div>
+            <div class="carousel-slide"><a href="https://youtu.be/cCCLdqVR0gM?si=HUf_JYsp4tFZtNjX" target="_blank" rel="noopener noreferrer"><img src="images/AAM1.png" alt="Publication 1"></a></div>
+            <div class="carousel-slide"><img src="images/work3.jpg" alt="Project Screenshot"></div>
+            <!-- Add more slides as needed -->
+        </div>
+        <div class="carousel-nav">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Publications Section -->
+        <div class="section">
+            <h2 class="section-title">Publications</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-company">Joint Commission Journal on Quality and Patient Safety</div>
+                    <h3 class="timeline-title">
+                        <a href="https://example.com/publication1" target="_blank">
+                        The Kaiser Permanente Northern California Advance Alert Monitor Program: An Automated Early Warning System for Adults at Risk for In-Hospital Clinical Deterioration
+                        </a>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-company">Joint Commission Journal on Quality and Patient Safety</div>
+                    <h3 class="timeline-title">
+                        <a href="https://example.com/publication2" target="_blank">
+                        What Do We Do After the Pilot Is Done? Implementation of a Hospital Early Warning System at Scale
+                        </a>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2016</div>
+                    <div class="timeline-company">Journal of Hospital Medicine</div>
+                    <h3 class="timeline-title">
+                        <a href="https://example.com/publication3" target="_blank">
+                        Incorporating an Early Detection System Into Routine Clinical Practice in Two Community Hospitals
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentations Section -->
+        <div class="section">
+            <h2 class="section-title">Presentations</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 12, 2024</div>
+                    <div class="timeline-company">KP Santa Clara, CA</div>
+                    <h3 class="timeline-title">Teaching Artificial Intelligence to Graduate Medical Education Providers</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 11, 2024</div>
+                    <div class="timeline-company">KP Mid-Atlantic States</div>
+                    <h3 class="timeline-title">Resident Grand Rounds: Augmented Intelligence – Generative AI in the Clinical Setting with Nadia Smati</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 19, 2024</div>
+                    <div class="timeline-company">AIMED 2024, Orlando, FL</div>
+                    <h3 class="timeline-title">Simplification and Gamification of Inpatient Discharge Instructions: Generative AI at Bedside</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 8, 2024</div>
+                    <div class="timeline-company">Stanford & NYU Langharne, NY</div>
+                    <h3 class="timeline-title">GenAI Quality Improvement Conference & Promptathon: Panel Discussion on the Frontiers of Generative AI and Healthcare Improvements</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 31, 2024</div>
+                    <div class="timeline-company">Northern California Kaiser Permanente, Berkeley, CA</div>
+                    <h3 class="timeline-title">AI for Medical Education Workshop with Nadia Smati</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 20, 2024</div>
+                    <div class="timeline-company">Regional Cardiology Education</div>
+                    <h3 class="timeline-title">Grand Rounds: Optimizing TTE Steward with AI Tools & Nadia Smati</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May & Aug 2024</div>
+                    <div class="timeline-company">Bethesda, MD</div>
+                    <h3 class="timeline-title">Faculty Development: Optimizing Teaching on Busy Wards</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 2023</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">AI-Clinical Decision Support Tool for Transthoracic ECHO Stewardship</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 15, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Clinical Coaching Cards: Tools for Teaching in the Moment</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 8, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">IPASS Curriculum Introduction & Bedside Teaching Rounding Expectations</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 23, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">MiPLAN: A Learner-Centered Model for Bedside Teaching & Direct Observation of Clinical Skills</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 21, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Just Culture in the Residency Learning Environment</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 26, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Clinical Coaching Module</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 19, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Bedside Patient and Family-Centered Rounding</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 26, 2021</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Learning Climate for Resident & Ward Rotation Feedback</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 7, 2019</div>
+                    <div class="timeline-company">Cynosure Health</div>
+                    <h3 class="timeline-title">Cynosure Health Early Detection Webinar (Dummett & Davis)</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 4, 2019</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Advance Alert Monitor Case Study Webinar</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2014</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Predictive Analytics in Healthcare (Saria et al.)</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2018</div>
+                    <div class="timeline-company"></div>
+                    <h3 class="timeline-title">Advance Alert Monitor, Grand Rounds CME</h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2018</div>
+                    <div class="timeline-company">KP National Quality Conference</div>
+                    <h3 class="timeline-title">Preventing Unrecognized Deterioration through Early-Warning Systems</h3>
+                </div>
+            </div>
+        </div>
+
+ <!-- Projects Section -->
+<div class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+        <!-- 1. Residency System for GME & UME -->
+        <div class="project-item">
+            <div class="project-icon">
+                <img src="About/clipart338775.png" alt="Residency System">
+            </div>
+            <div class="project-info">
+                <h3>Residency System for GME & UME</h3>
+                <p>Developed an integrated system to organize lectures, schedules, and automate email communications for residency and undergraduate medical education using Microsoft tools including Flow, Lists, SharePoint, and Teams.</p>
+            </div>
+        </div>
+        
+        <!-- 2. E-Learning Platform -->
+        <div class="project-item">
+            <div class="project-icon">
+                <img src="About/clipart3025057.png" alt="E-Learning Platform">
+            </div>
+            <div class="project-info">
+                <h3>E-Learning Platform</h3>
+                <p>Designed and implemented a comprehensive e-learning platform utilizing Canvas for informatics curriculum, focused on patient safety training, MSIV clerkship, and sub-internship curriculum creation.</p>
+            </div>
+        </div>
+        
+        <!-- 3. Resident Handoff & Workflow Task Tool -->
+        <div class="project-item">
+            <div class="project-icon">
+                <img src="About/clipart490693.png" alt="Resident Handoff & Workflow Tool">
+            </div>
+            <div class="project-info">
+                <h3>Resident Handoff & Workflow Task Tool</h3>
+                <p>Led the development of an innovative teaming tool featuring a “choose your own adventure” activity, designed to streamline resident handoffs and demonstrate workflow prioritization for MSIV medical students.</p>
+            </div>
+        </div>
+        
+        <!-- 4. Innovation & ACP Award-Winning Gamification and Discharge Instructions Tool -->
+        <div class="project-item">
+            <div class="project-icon">
+                <img src="About/clipart2016607.png" alt="Innovation & Gamification">
+            </div>
+            <div class="project-info">
+                <h3>Innovation & ACP Award-Winning Gamification and Discharge Instructions Tool</h3>
+                <p>Developed an award-winning gamified solution for discharge instructions, integrating Advance Alert Monitor (AAM) analytics to significantly reduce response times and save lives, with robust statistics on lives and time saved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    
+    <script src="theme-toggle.js"></script>
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        let currentIndex = 0;
+    
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+    
+        prev.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+            showSlide(currentIndex);
+        });
+    
+        next.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }, 5000);
+    </script>
+</body>
+</html>
