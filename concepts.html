@@ -114,8 +114,47 @@
                 </article>
 
             </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <img src="images/MedEdAITesting.png" alt="MedEdAITesting" class="concept-image">
+                <img src="images/EmpoweredMedicalEducation.png" alt="EmpoweredMedicalEducation" class="concept-image">
+                <img src="images/BestStewards.png" alt="BestStewards" class="concept-image">
+                <img src="images/WhyBestStewards.png" alt="WhyBestStewards" class="concept-image">
+                <img src="images/AIEducationPolicyFramework.png" alt="AIEducationPolicyFramework" class="concept-image">
+            </div>
         </section>
     </main>
+    <style>
+        .concept-image {
+            width: 200px; /* Adjust as needed */
+            height: auto;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .concept-image.enlarged {
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            width: 80vw;
+            height: 80vh;
+            object-fit: contain;
+            z-index: 1000;
+            transform: none;
+        }
+    </style>
+    <script>
+        const conceptImages = document.querySelectorAll('.concept-image');
+
+        conceptImages.forEach(image => {
+            image.addEventListener('mouseover', () => {
+                image.classList.add('enlarged');
+            });
+            image.addEventListener('mouseout', () => {
+                image.classList.remove('enlarged');
+            });
+        });
+    </script>
 
     <footer class="bg-gray-800 text-gray-300 py-12">
         <div class="container mx-auto px-4">
