@@ -375,62 +375,62 @@
         }
 
         .carousel-container {
-    position: relative;
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+            position: relative;
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-.carousel-slide {
-    min-width: 100%;
-    display: none;
-}
+        .carousel-slide {
+            min-width: 100%;
+            display: none;
+        }
 
-.carousel-slide.active {
-    display: block;
-}
+        .carousel-slide.active {
+            display: block;
+        }
 
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    max-height: 400px;
-    object-fit: contain;
-    display: block;
-    margin: auto;
-}
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
 
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 1rem;
-}
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+        }
 
-.carousel-nav button {
-    background-color: rgba(0,0,0,0.5);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
+        .carousel-nav button {
+            background-color: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
 
-.carousel-nav button:hover {
-    background-color: rgba(0,0,0,0.7);
-}
+        .carousel-nav button:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
     </style>
 </head>
 
@@ -454,14 +454,15 @@
             </div>
             <a href="blog.html" class="nav-link">Reading</a>
             <div class="dropdown">
-        <a href="#" class="nav-link dropdown-toggle">Checklists</a>
-        <div class="dropdown-content">
-          <a href="AISafetyChecklist.html">AI Safety Checklist</a>
-          <a href="HumanFactor.html">Human Factors Checklist</a>
-          <a href="Humanely.html">HumanELY LLM Eval</a>
+                <a href="#" class="nav-link dropdown-toggle">Checklists</a>
+                <div class="dropdown-content">
+                    <a href="AISafetyChecklist.html">AI Safety Checklist</a>
+                    <a href="HumanFactor.html">Human Factors Checklist</a>
+                    <a href="Humanely.html">HumanELY LLM Eval</a>
+                </div>
+            </div>
+            <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
         </div>
-      </div>
-        <a href="https://calendly.com/b-alex-dummett" class="contact-btn" target="_blank">Contact Us</a>
     </nav>
     <header>
         <h1>Portfolio</h1>
@@ -472,7 +473,13 @@
         <div class="carousel">
             <div class="carousel-slide active"><a href="https://youtu.be/cCCLdqVR0gM?si=HUf_JYsp4tFZtNjX" target="_blank" rel="noopener noreferrer"><img src="images/AAM2.png" alt="Presentation 1"></a></div>
             <div class="carousel-slide"><a href="https://youtu.be/cCCLdqVR0gM?si=HUf_JYsp4tFZtNjX" target="_blank" rel="noopener noreferrer"><img src="images/AAM1.png" alt="Publication 1"></a></div>
-            <div class="carousel-slide"><img src="images/work3.jpg" alt="Project Screenshot"></div>
+            <div class="carousel-slide"><a href="#projects"><img src="images/Sim.png" alt="Sim Image"></a></div>
+            <div class="carousel-slide"><img src="images/IHI.png" alt="IHI Image"></div>
+            <div class="carousel-slide"><img src="images/AIMED24.png" alt="AIMED24 Image"></div>
+            <div class="carousel-slide"><a href="#projects"><img src="images/Knee.png" alt="Knee Image"></a></div>
+            <div class="carousel-slide"><a href="#projects"><img src="images/KneeJoint.png" alt="Knee Joint Image"></a></div>
+            <div class="carousel-slide"><a href="#projects"><img src="images/KneeLigaments.png" alt="Knee Ligaments Image"></a></div>
+            <div class="carousel-slide"><a href="#projects"><img src="images/ShoulderJoint.png" alt="Shoulder Joint Image"></a></div>
             <!-- Add more slides as needed -->
         </div>
         <div class="carousel-nav">
@@ -623,55 +630,66 @@
             </div>
         </div>
 
- <!-- Projects Section -->
-<div class="section">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-list">
-        <!-- 1. Residency System for GME & UME -->
-        <div class="project-item">
-            <div class="project-icon">
-                <img src="About/clipart338775.png" alt="Residency System">
-            </div>
-            <div class="project-info">
-                <h3>Residency System for GME & UME</h3>
-                <p>Developed an integrated system to organize lectures, schedules, and automate email communications for residency and undergraduate medical education using Microsoft tools including Flow, Lists, SharePoint, and Teams.</p>
+
+        <!-- Projects Section -->
+        <div id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-list">
+                <!-- 5. Simulation Program -->
+                <div class="project-item">
+                    <div class="project-icon">
+                        <img src="About/teamstepps logo.png" alt="Simulation Program">
+                    </div>
+                    <div class="project-info">
+                        <h3>Medical Simulation Program</h3>
+                        <p>SSH Certified simulation specialist for the KP MAS Patient Safety center, leading simulation training for the Internal Medicine residency program. As a TeamSTEPPS Master Trainer, implemented evidence-based communication best practices across hundreds of simulations, focusing on crisis resource management, interprofessional communication, and patient safety protocols. Conducted over 100 simulations covering various clinical scenarios from code blues to difficult patient conversations.</p>
+                    </div>
+                </div>
+                <!-- 1. Residency System for GME & UME -->
+                <div class="project-item">
+                    <div class="project-icon">
+                        <img src="About/clipart338775.png" alt="Residency System">
+                    </div>
+                    <div class="project-info">
+                        <h3>Residency System for GME & UME</h3>
+                        <p>Helped lead the development of a comprehensive residency organizational structure and educational ecosystem during the launch of a new training program. Spearheaded the design and implementation of an integrated learning management system connecting both GME and UME domains. The system supported lecture coordination and operational logistics for residents and students. Leveraged Microsoft tools—including Power Automate, Lists, SharePoint, and Teams—to streamline scheduling, automate communications, and support educational continuity. This resourceful approach established the foundation for scalable operations and long-term sustainability.</p>
+                    </div>
+                </div>
+                
+                <!-- 2. E-Learning Platform -->
+                <div class="project-item">
+                    <div class="project-icon">
+                        <img src="About/clipart3025057.png" alt="E-Learning Platform">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Learning Platform</h3>
+                        <p>Designed and implemented a comprehensive e-learning platform utilizing Canvas for informatics curriculum delivery. This platform hosted structured MS3 and MS4 clerkship content for students from Penn State and EVMS, aligned to AAMC curriculum guidelines. It supported patient safety training and sub-internship preparation modules through a scalable, standards-based framework.</p>
+                    </div>
+                </div>
+                
+                <!-- 3. Resident Handoff & Workflow Task Tool -->
+                <div class="project-item">
+                    <div class="project-icon">
+                        <img src="About/clipart490693.png" alt="Resident Handoff & Workflow Tool">
+                    </div>
+                    <div class="project-info">
+                        <h3>Resident Handoff & Workflow Task Tool</h3>
+                        <p>Led the development of an innovative teaming tool featuring a "choose your own adventure" activity to teach workflow prioritization and task management for MSIV medical students. Implemented and adapted the I-PASS handoff curriculum specifically for inpatient medicine, emphasizing structured communication during patient transitions. This tool reinforced the critical role of effective handoffs in ensuring patient safety and continuity of care.</p>
+                    </div>
+                </div>
+                
+                <!-- 4. Innovation & ACP Award-Winning Gamification and Discharge Instructions Tool -->
+                <div class="project-item">
+                    <div class="project-icon">
+                        <img src="About/clipart2016607.png" alt="Innovation & Gamification">
+                    </div>
+                    <div class="project-info">
+                        <h3>Innovation & ACP Award-Winning Gamification and Discharge Instructions Tool</h3>
+                        <p>Developed an award-winning gamified solution for discharge instructions, integrating Advance Alert Monitor (AAM) analytics to significantly reduce response times and save lives, with robust statistics on lives and time saved.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- 2. E-Learning Platform -->
-        <div class="project-item">
-            <div class="project-icon">
-                <img src="About/clipart3025057.png" alt="E-Learning Platform">
-            </div>
-            <div class="project-info">
-                <h3>E-Learning Platform</h3>
-                <p>Designed and implemented a comprehensive e-learning platform utilizing Canvas for informatics curriculum, focused on patient safety training, MSIV clerkship, and sub-internship curriculum creation.</p>
-            </div>
-        </div>
-        
-        <!-- 3. Resident Handoff & Workflow Task Tool -->
-        <div class="project-item">
-            <div class="project-icon">
-                <img src="About/clipart490693.png" alt="Resident Handoff & Workflow Tool">
-            </div>
-            <div class="project-info">
-                <h3>Resident Handoff & Workflow Task Tool</h3>
-                <p>Led the development of an innovative teaming tool featuring a “choose your own adventure” activity, designed to streamline resident handoffs and demonstrate workflow prioritization for MSIV medical students.</p>
-            </div>
-        </div>
-        
-        <!-- 4. Innovation & ACP Award-Winning Gamification and Discharge Instructions Tool -->
-        <div class="project-item">
-            <div class="project-icon">
-                <img src="About/clipart2016607.png" alt="Innovation & Gamification">
-            </div>
-            <div class="project-info">
-                <h3>Innovation & ACP Award-Winning Gamification and Discharge Instructions Tool</h3>
-                <p>Developed an award-winning gamified solution for discharge instructions, integrating Advance Alert Monitor (AAM) analytics to significantly reduce response times and save lives, with robust statistics on lives and time saved.</p>
-            </div>
-        </div>
-    </div>
-</div>
     </div>
     
     <script src="theme-toggle.js"></script>
@@ -695,7 +713,7 @@
         next.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % slides.length;
             showSlide(currentIndex);
-        }, 5000);
+        });
     </script>
 </body>
 </html>
